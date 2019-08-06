@@ -1,0 +1,14 @@
+Package: stlnpp
+Type: Package
+Title: Spatio-temporal analysis of point patterns on linear networks
+Version: 0.3.1
+Authors@R: person("Mehdi", "Moradi", email = "m2.moradi@yahoo.com",
+  role = c("aut", "cre"))
+Maintainer: Mehdi Moradi <m2.moradi@yahoo.com>
+Description: Statistical analysis of spatio-temporal point processes on linear networks. This packages provides tools to visualise and analyse spatio-temporal point patterns on linear networks using first- and second-order summary statistics.
+Depends: spatstat, stats
+Suggests: plot3D, lattice, graphics
+License: GPL (>= 2)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1

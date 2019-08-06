@@ -1,0 +1,67 @@
+#' @export
+STLKinhom <- function(X,lambda=lambda,normaliz=F,seqr=NULL,seqt=NULL,nxy=10){
+
+  if (!inherits(X, "stlpp")) stop("X should be from class stlpp")
+
+
+  Y <- as.stlpp.lpp(X)
+  l <- domain(Y)
+  tleng <- summary(l)$totlength
+  n <- npoints(X)
+  a <- X$time[1]
+  b <- X$time[2]
+  trange <- b-a
+  timev <- X$data$t
+
+  sdist <- pairdist.lpp(Y)
+  tdist <- as.matrix(dist(timev))
+
+  toler <- default.linnet.tolerance(l)
+  ml <- matrix(1, n, n)
+  for(j in 1:n) {
+    ml[ -j, j] <- countends(l, Y[-j], sdist[-j,j], toler=toler)
+  }
+
+  mtplus <- matrix(timev,n,n,byrow = T)+tdist
+  mtminus <- matrix(timev,n,n,byrow = T)-tdist
+  mtedge <- (mtplus<=b) + (mtminus>=a)
+  diag(mtedge) <- 1
+
+  lamden <- outer(lambda,lambda,FUN = "*")
+  diag(lamden) <- 1
+  edgetl <- mtedge*ml*lamden
+
+  maxs <- 0.7*max(sdist[!is.infinite(sdist)])
+  maxt <- 0.7*(trange/2)
+
+  if(is.null(seqr)) seqr <- seq((maxs/nxy),maxs,by=(maxs-(maxs/nxy))/(nxy-1))
+  if(is.null(seqt)) seqt <- seq((maxt/nxy),maxt,by=(maxt-(maxt/nxy))/(nxy-1))
+
+  K <- matrix(NA,nrow = nxy,ncol = nxy)
+
+  for (i in 1:length(seqr)) {
+
+    for (j in 1:length(seqt)) {
+      out <- (sdist<=seqr[i])*(tdist<=seqt[j])
+      diag(out) <- 0
+      kout <- out/edgetl
+      K[i,j] <- sum(kout[!is.na(kout) & !is.infinite(kout)])
+    }
+  }
+
+  if(normaliz){
+    revrho <- outer(1/lambda,1/lambda,FUN = "*")
+    appx <- (tleng*trange)/(sum(revrho[lower.tri(revrho, diag = FALSE)])*2)
+    K <- K*appx
+  }
+  else{
+    K <- K/(trange*tleng)
+  }
+
+  ##
+  pixcor <- expand.grid(seqr,seqt)
+  Kout <- list(Kinhom=K,Ktheo=matrix(pixcor[,1]*pixcor[,2],ncol = nxy),r=seqr,t=seqt)
+  class(Kout) <- c("sumstlpp")
+  attr(Kout,"nxy") <- nxy
+  return(Kout)
+}
