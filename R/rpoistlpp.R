@@ -47,7 +47,7 @@ rpoistlpp <-  function(lambda,a,b,L,check=FALSE,lmax=NULL,nsim=1){
       gridx <- p2s$Xproj$x
       gridy <- p2s$Xproj$y
       df <- data.frame(gridx,gridy)
-      df <- df[duplicated(df), ]
+      df <- df[!duplicated(df), ]
       grid <- lpp(df,L)
       grid <- unique(grid)
       t0 <- runif(npoints(grid),a,b)
