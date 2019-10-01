@@ -1,5 +1,6 @@
 \name{Eastbourne}
 \alias{Eastbourne}
+\docType{data}
 \title{
 Eastbourne traffic accident data
 }

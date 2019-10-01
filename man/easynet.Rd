@@ -1,5 +1,6 @@
 \name{easynet}
 \alias{easynet}
+\docType{data}
 \title{
 simple linear network
 }

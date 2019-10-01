@@ -1,5 +1,6 @@
 \name{Medellin}
 \alias{Medellin}
+\docType{data}
 \title{
 Medellin traffic accident data
 }
