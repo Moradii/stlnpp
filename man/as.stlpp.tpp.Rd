@@ -13,7 +13,7 @@ as.stlpp.tpp(X)
   \item{X}{an object of class \code{\link{stlpp}}}
 }
 \details{
-This function projects the space-time point pattern X on L \times T into the time interval T.
+This function projects the space-time point pattern X on L times T into the time interval T.
 }
 \value{
 an object of class tpp.
