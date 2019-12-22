@@ -7,12 +7,15 @@ Kernel estimation of intensity of temporal point patterns
 Kernel estimation of intensity of temporal point patterns
 }
 \usage{
-\method{density}{tpp}(x)
+\method{density}{tpp}(x,tbw,at=c("points","pixels"),...)
 }
 \arguments{
   \item{x}{
 a temporal point pattern (of class \code{\link{tpp}})
 }
+\item{tbw}{time smoothing bandwidth}
+\item{at}{string specifying whether to compute the intensity values at a grid of pixel locations (at="pixels") or only at the points of x (at="points"). default is to estimate the intensity at pixels}
+\item{...}{arguments passed to \link[stats]{density}}
 }
 \details{
 }

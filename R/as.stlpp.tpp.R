@@ -42,7 +42,7 @@ plot.tpp <- function(X,xlab=NULL,ylab=NULL,...){
 }
 
 #' @export
-density.tpp <- function(X,tbw,...){
+density.tpp <- function(X,tbw,at=c("points","pixels"),...){
   
   if (!inherits(X, "tpp")) stop("X should an object of class tpp")
   
@@ -53,7 +53,14 @@ density.tpp <- function(X,tbw,...){
     d <- density(X,bw=tbw,...)
   }
   
-  Tint <- d$y[findInterval(X$data$t, d$x)] * npoints(X)
+  if(missing(at)) at <- pixels
+  
+  if(at=="points"){
+    Tint <- d$y[findInterval(X$data$t, d$x)] * npoints(X)
+  }
+  if(at=="pixels"){
+    Tint <- d$y * npoints(X)
+  }
   ############################################## space intensity
   
   out <- Tint
