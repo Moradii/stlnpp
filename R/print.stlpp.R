@@ -13,7 +13,8 @@ print.stlpp <- function(x)
 
 #' @export
 print.stlppint <- function(x) {
-  print(as.vector(x))
+  if(any(class(x)=="list")) print("List of images on linear network")
+  if(any(class(x)=="numeric")) print(as.vector(x))
 }
 
 #' @export

@@ -2,7 +2,7 @@
 \alias{density.stlpp}
 \title{Kernel estimation of intensity of space-time point patterns on a linear network}
 \usage{
-\method{density}{stlpp}(X,lbw,tbw,...)
+\method{density}{stlpp}(X,lbw,tbw,at=c("points","pixels"),dimt=512,...)
 }
 \description{
 Kernel density estimation of a spatio-temporal point pattern on a linear network.
@@ -12,6 +12,8 @@ Kernel density estimation of a spatio-temporal point pattern on a linear network
   \item{X}{an object of class \code{\link{stlpp}}}
   \item{lbw}{netwrok smoothing bandwidth}
   \item{tbw}{time smoothing bandwidth}
+  \item{at}{String specifying whether to compute the intensity values at a grid of pixel locations and time (at="pixels") or only at the points of x (at="points"). default is to estimate the intensity at pixels}
+  \item{dimt}{the number of equally spaced points at which the temporal density is to be estimated. see \link[stats]{density}}
   \item{...}{arguments passed to \code{\link{density.lpp}}}
 }
 
@@ -20,7 +22,10 @@ Kernel smoothing is applied to the spatio-temporal point pattern X using methods
 }
 
 \value{
-a vector of intensity values at the data points of X. check the attributes for more accommodated outputs.
+if \code{at="points"}: a vector of intensity values at the data points of X.
+
+if \code{at="pixels"}: a list of images on linear network. Each image represents an estimated saptio-temporal intensity at a fixed time.
+check the attributes for more accommodated outputs.
 }
 
 \references{
