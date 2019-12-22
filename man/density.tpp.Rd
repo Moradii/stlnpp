@@ -20,7 +20,7 @@ a temporal point pattern (of class \code{\link{tpp}})
 \details{
 }
 \value{
-a vector of intensity values at the data points of X. check the attributes for more accommodated outputs.
+a vector of intensity values. check the attributes for more accommodated outputs.
 }
 
 \references{

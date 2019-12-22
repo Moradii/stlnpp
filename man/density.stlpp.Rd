@@ -12,7 +12,7 @@ Kernel density estimation of a spatio-temporal point pattern on a linear network
   \item{X}{an object of class \code{\link{stlpp}}}
   \item{lbw}{netwrok smoothing bandwidth}
   \item{tbw}{time smoothing bandwidth}
-  \item{at}{String specifying whether to compute the intensity values at a grid of pixel locations and time (at="pixels") or only at the points of x (at="points"). default is to estimate the intensity at pixels}
+  \item{at}{string specifying whether to compute the intensity values at a grid of pixel locations and time (at="pixels") or only at the points of x (at="points"). default is to estimate the intensity at pixels}
   \item{dimt}{the number of equally spaced points at which the temporal density is to be estimated. see \link[stats]{density}}
   \item{...}{arguments passed to \code{\link{density.lpp}}}
 }
