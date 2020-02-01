@@ -37,4 +37,7 @@ Mehdi Moradi <m2.moradi@yahoo.com>
 \code{\link{as.stlpp}}, \code{\link{lpp}}
 }
 \examples{
+X <- rpoislpp(1,easynet)
+t <- runif(npoints(X))
+stlpp(X,T=t,L=easynet)
 }

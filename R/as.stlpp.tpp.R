@@ -21,13 +21,13 @@ as.stlpp.tpp <- function(X){
 }
 
 #' @export
-print.tpp <- function(x)
+print.tpp <- function(X)
 {
-  if(!any(class(x)=="tpp")) stop("class(X) must be tpp")
+  if(!any(class(X)=="tpp")) stop("class(X) must be tpp")
   cat("Temporal point pattern \n");
-  if(npoints(x)>1){cat(paste0(npoints(x)," ", "points"),"\n")}
-  else{cat(paste0(npoints(x)," ", "point"),"\n")};
-  cat(paste0("Time period: [",range(x$time)[1],", ", range(x$time)[2],"]"),"\n")
+  if(npoints(X)>1){cat(paste0(npoints(X)," ", "points"),"\n")}
+  else{cat(paste0(npoints(X)," ", "point"),"\n")};
+  cat(paste0("Time period: [",range(X$time)[1],", ", range(X$time)[2],"]"),"\n")
 }
 
 
@@ -76,7 +76,7 @@ print.tppint <- function(X){
 }
 
 #' @export
-plot.tppint <- function(X,style=style,xlab=xlab,xlim=xlim,line=2.5,...){
+plot.tppint <- function(X,xlab=xlab,xlim=xlim,line=2.5,...){
   if (inherits(X, "tppint") == FALSE) stop(" X must be from class tppint")
   t <- attr(X,"time")
   d <- attr(X,"tempden")

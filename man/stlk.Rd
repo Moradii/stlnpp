@@ -2,7 +2,7 @@
 \alias{STLK}
 \title{K-function for spatio-temporal point processes on linear networks}
 \usage{
-STLK(X,r=NULL,t=NULL)
+STLK(X,r=NULL,t=NULL,nxy=10)
 }
 \description{
 K-function for spatio-temporal point processes on linear networks.
@@ -11,6 +11,7 @@ K-function for spatio-temporal point processes on linear networks.
   \item{X}{a realisation of a spatio-temporal point processes on a linear networks. }
   \item{r}{values of argument r where pair correlation function will be evaluated. optional.}
   \item{t}{values of argument t where pair correlation function will be evaluated. optional.}
+    \item{nxy}{pixel array dimensions. optional.}
 }
 
 \details{
@@ -18,7 +19,7 @@ This function calculates the K-function for a homogeneous spatio-temporal point 
 }
 
 \value{
-An object of class \code{\link{sumstlpp}}.
+An object of class \code{sumstlpp}.
 }
 \references{
 Moradi, M.M. and Mateu, J. (2019). First and second-order characteristics of spatio-temporal point processes on linear networks. Journal of Computational and Graphical Statistics. In press.

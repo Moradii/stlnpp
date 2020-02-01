@@ -22,7 +22,7 @@ This function calculates the inhomogeneous pair correlation function for a spati
 }
 
 \value{
-An object of class \code{\link{sumstlpp}}.
+An object of class \code{sumstlpp}.
 }
 \references{
 Moradi, M.M. and Mateu, J. (2019). First and second-order characteristics of spatio-temporal point processes on linear networks. Journal of Computational and Graphical Statistics. In press.

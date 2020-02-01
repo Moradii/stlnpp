@@ -22,9 +22,3 @@ rthin.stlpp <- function(X,P=P,nsim=1){
     return(out)
   }
 }
-
-#' @export
-sub.stlpp <- function(x,i){
-  d <- as.data.frame(x$data[i,])
-  as.stlpp(d$x,d$y,d$t,L=x$domain)
-}

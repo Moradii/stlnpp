@@ -29,9 +29,6 @@ Data can be of formats:
 \value{
 A spatio-temporal point pattern on a linear network. An object of class  \code{\link{stlpp}}.
 }
-\references{
-}
-
 \author{
 Mehdi Moradi <m2.moradi@yahoo.com>
 }

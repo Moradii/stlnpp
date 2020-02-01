@@ -9,11 +9,11 @@ This function projects an object of class \code{\link{stlpp}} to a linear networ
 }
 
 \usage{
-as.stlpp.lpp(x)
+as.stlpp.lpp(X)
 }
 
 \arguments{
-  \item{x}{ an object of class \code{\link{stlpp}}
+  \item{X}{ an object of class \code{\link{stlpp}}
 }
 }
 \details{

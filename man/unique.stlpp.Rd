@@ -1,6 +1,9 @@
 \name{unique.stlpp}
 \alias{unique.stlpp}
 \title{Extract unique points from a spatio-temporal point pattern on a linear network}
+\description{
+Extract unique points from a spatio-temporal point pattern on a linear network.
+}
 \usage{
 \method{unique}{stlpp}(X,...)
 }
@@ -30,7 +33,7 @@ Mehdi Moradi <m2.moradi@yahoo.com>
 \examples{
   X =  rpoistlpp(0.1,0,5,L=easynet)
   df = as.data.frame(X)
-  df_dup = df[sample(nrow(df), 20,replace = T), ]
+  df_dup = df[sample(nrow(df), 20,replace = TRUE), ]
   Y = as.stlpp(df_dup,L=easynet)
   npoints(Y)
   npoints(unique(Y))

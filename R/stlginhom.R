@@ -1,5 +1,5 @@
 #' @export
-STLginhom <- function(X,lambda,normalize=F,r=NULL,t=NULL,nxy=10){
+STLginhom <- function(X,lambda,normalize=FALSE,r=NULL,t=NULL,nxy=10){
 
 
   if (!inherits(X, "stlpp")) stop("X should be from class stlpp")
