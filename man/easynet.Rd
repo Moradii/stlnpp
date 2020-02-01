@@ -2,7 +2,7 @@
 \alias{easynet}
 \docType{data}
 \title{
-simple linear network
+A simple linear network
 }
 \description{
 A simple and not real network.

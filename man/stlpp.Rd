@@ -4,12 +4,11 @@
 Create spatio-temporal point pattern on linear network
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Create spatio-temporal point pattern on linear network.
 }
 \usage{
 stlpp(X, L, T, ...)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{X}{
 Locations of the points. A matrix or data frame of coordinates, or a point pattern object (of class "ppp") or other data acceptable to \code{\link{as.ppp}} or  \code{\link{lpp}}}

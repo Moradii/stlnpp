@@ -1,6 +1,6 @@
 \name{rpoistlpp}
 \alias{rpoistlpp}
-\title{simulating spatio-temporal poisson point processes on a linear network}
+\title{Simulating spatio-temporal poisson point processes on a linear network}
 \usage{
 rpoistlpp(lambda,a,b,L,check=FALSE,lmax=NULL,nsim=1)
 }
@@ -19,14 +19,14 @@ simulating a realisation of a spatio-temporal poisson point process on a linear 
 }
 
 \details{
-This function generates a realisation of a spatio-temporal poisson point process on a linear network based on intensity function lambda and lower/upper bounds a and b.
+This function generates realisations of a spatio-temporal poisson point process on a linear network based on an intensity function lambda and lower/upper bounds a and b.
 }
 
 \value{
 an object of class \code{\link{stlpp}} if nsim=1, otherwise a list of objects of class \code{\link{stlpp}}.
 }
 \references{
-Moradi, M.M. and Mateu, J. (2019). First and second-order characteristics of spatio-temporal point processes on linear networks.
+Moradi, M.M. and Mateu, J. (2019). First and second-order characteristics of spatio-temporal point processes on linear networks. Journal of Computational and Graphical Statistics. In press.
 }
 
 \author{
@@ -34,10 +34,10 @@ Mehdi Moradi <m2.moradi@yahoo.com>
 }
 
 \seealso{
-\code{\link{density}}
+\code{\link{density.stlpp}}
 }
 \examples{
-X = rpoistlpp(.2,a=0,b=5,L=easynet)
+X <- rpoistlpp(.2,a=0,b=5,L=easynet)
 X
 }
 

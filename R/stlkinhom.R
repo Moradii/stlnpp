@@ -1,5 +1,5 @@
 #' @export
-STLKinhom <- function(X,lambda=lambda,normaliz=F,seqr=NULL,seqt=NULL,nxy=10){
+STLKinhom <- function(X,lambda=lambda,normalize=F,r=NULL,t=NULL,nxy=10){
 
   if (!inherits(X, "stlpp")) stop("X should be from class stlpp")
 
@@ -34,22 +34,22 @@ STLKinhom <- function(X,lambda=lambda,normaliz=F,seqr=NULL,seqt=NULL,nxy=10){
   maxs <- 0.7*max(sdist[!is.infinite(sdist)])
   maxt <- 0.7*(trange/2)
 
-  if(is.null(seqr)) seqr <- seq((maxs/nxy),maxs,by=(maxs-(maxs/nxy))/(nxy-1))
-  if(is.null(seqt)) seqt <- seq((maxt/nxy),maxt,by=(maxt-(maxt/nxy))/(nxy-1))
+  if(is.null(r)) r <- seq((maxs/nxy),maxs,by=(maxs-(maxs/nxy))/(nxy-1))
+  if(is.null(t)) t <- seq((maxt/nxy),maxt,by=(maxt-(maxt/nxy))/(nxy-1))
 
   K <- matrix(NA,nrow = nxy,ncol = nxy)
 
-  for (i in 1:length(seqr)) {
+  for (i in 1:length(r)) {
 
-    for (j in 1:length(seqt)) {
-      out <- (sdist<=seqr[i])*(tdist<=seqt[j])
+    for (j in 1:length(t)) {
+      out <- (sdist<=r[i])*(tdist<=t[j])
       diag(out) <- 0
       kout <- out/edgetl
       K[i,j] <- sum(kout[!is.na(kout) & !is.infinite(kout)])
     }
   }
 
-  if(normaliz){
+  if(normalize){
     revrho <- outer(1/lambda,1/lambda,FUN = "*")
     appx <- (tleng*trange)/(sum(revrho[lower.tri(revrho, diag = FALSE)])*2)
     K <- K*appx
@@ -59,8 +59,8 @@ STLKinhom <- function(X,lambda=lambda,normaliz=F,seqr=NULL,seqt=NULL,nxy=10){
   }
 
   ##
-  pixcor <- expand.grid(seqr,seqt)
-  Kout <- list(Kinhom=K,Ktheo=matrix(pixcor[,1]*pixcor[,2],ncol = nxy),r=seqr,t=seqt)
+  pixcor <- expand.grid(r,t)
+  Kout <- list(Kinhom=K,Ktheo=matrix(pixcor[,1]*pixcor[,2],ncol = nxy),r=r,t=t)
   class(Kout) <- c("sumstlpp")
   attr(Kout,"nxy") <- nxy
   return(Kout)

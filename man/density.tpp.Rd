@@ -4,7 +4,7 @@
 Kernel estimation of intensity of temporal point patterns
 }
 \description{
-Kernel estimation of intensity of temporal point patterns
+Kernel estimation of intensity of temporal point patterns.
 }
 \usage{
 \method{density}{tpp}(x,tbw,at=c("points","pixels"),...)
@@ -20,11 +20,11 @@ a temporal point pattern (of class \code{\link{tpp}})
 \details{
 }
 \value{
-a vector of intensity values. check the attributes for more accommodated outputs.
+A vector of intensity values.
 }
 
 \references{
-Moradi, M.M. and Mateu, J. (2019). First and second-order characteristics of spatio-temporal point processes on linear networks.
+Moradi, M.M. and Mateu, J. (2019). First and second-order characteristics of spatio-temporal point processes on linear networks. Journal of Computational and Graphical Statistics. In press.
 }
 
 \author{
@@ -33,4 +33,9 @@ Mehdi Moradi <m2.moradi@yahoo.com>
 
 \seealso{
 \code{\link{density}}, \code{\link{bw.nrd0}}
+}
+
+\examples{
+X <- tpp(sample(c(1:24),200,replace = T))
+plot(density(X))
 }

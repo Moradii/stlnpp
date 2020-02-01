@@ -29,7 +29,7 @@ check the attributes for more accommodated outputs.
 }
 
 \references{
-Moradi, M.M. and Mateu, J. (2019). First and second-order characteristics of spatio-temporal point processes on linear networks.
+Moradi, M.M. and Mateu, J. (2019). First and second-order characteristics of spatio-temporal point processes on linear networks. Journal of Computational and Graphical Statistics. In press.
 }
 
 \author{
@@ -40,6 +40,6 @@ Mehdi Moradi <m2.moradi@yahoo.com>
 \code{\link{density}}, \code{\link{density.lpp}}, \code{\link{bw.nrd0}}, \code{\link{bw.scott.iso}}
 }
 \examples{
-X = rpoistlpp(.2,a=0,b=5,L=easynet)
+X <- rpoistlpp(.2,a=0,b=5,L=easynet)
 density(X)
 }

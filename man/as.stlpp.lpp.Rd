@@ -17,10 +17,10 @@ as.stlpp.lpp(x)
 }
 }
 \details{
-This function projects the space-time point pattern x into the linear network L.
+This function projects the space-time point pattern x on linear network L into L, giving its corresponding spatial point pattern.
 }
 \value{
-an object of class \code{\link{lpp}}.
+An object of class \code{\link{lpp}}.
 }
 
 \author{
@@ -35,8 +35,8 @@ Mehdi Moradi <m2.moradi@yahoo.com>
 
 \examples{
 data(easynet)
-x = runifpointOnLines(40, easynet)
-t1 = sample(1:10,40,replace=TRUE)
-Y = as.stlpp(x,t=t1,L=easynet)
+x <- runifpointOnLines(40, easynet)
+t1 <- sample(1:10,40,replace=TRUE)
+Y <- as.stlpp(x,t=t1,L=easynet)
 as.stlpp.lpp(Y)
 }

@@ -1,5 +1,5 @@
 #' @export
-STLginhom <- function(X,lambda,normalize=F,seqr=NULL,seqt=NULL,nxy=10){
+STLginhom <- function(X,lambda,normalize=F,r=NULL,t=NULL,nxy=10){
 
 
   if (!inherits(X, "stlpp")) stop("X should be from class stlpp")
@@ -35,20 +35,20 @@ STLginhom <- function(X,lambda,normalize=F,seqr=NULL,seqt=NULL,nxy=10){
   maxs <- 0.7*max(sdist[!is.infinite(sdist)])
   maxt <- 0.7*(trange/2)
 
-  if(is.null(seqr)) seqr <- seq((maxs/nxy),maxs,by=(maxs-(maxs/nxy))/(nxy-1))
-  if(is.null(seqt)) seqt <- seq((maxt/nxy),maxt,by=(maxt-(maxt/nxy))/(nxy-1))
+  if(is.null(r)) r <- seq((maxs/nxy),maxs,by=(maxs-(maxs/nxy))/(nxy-1))
+  if(is.null(t)) t <- seq((maxt/nxy),maxt,by=(maxt-(maxt/nxy))/(nxy-1))
 
   g <- matrix(NA, nrow = nxy, ncol = nxy)
   no <- sdist == 0 & tdist == 0 | sdist==Inf | sdist>maxs | tdist>maxt
   bwl <- bw.nrd0(as.numeric(sdist[!no]))
   bwt <- bw.nrd0(as.numeric(tdist[!no]))
 
-  for (i in 1:length(seqr)) {
-    for (j in 1:length(seqt)) {
+  for (i in 1:length(r)) {
+    for (j in 1:length(t)) {
 
-      outl <- dkernel(as.numeric(sdist[!no] - seqr[i]),
+      outl <- dkernel(as.numeric(sdist[!no] - r[i]),
                       sd = bwl)
-      outt <- dkernel(as.numeric(tdist[!no] - seqt[j]),
+      outt <- dkernel(as.numeric(tdist[!no] - t[j]),
                       sd = bwt)
       g1 <- outl * outt/(edgetl[!no])
       g[i, j] <- sum(g1[!is.na(g1) & !is.infinite(g1)])
@@ -64,8 +64,8 @@ STLginhom <- function(X,lambda,normalize=F,seqr=NULL,seqt=NULL,nxy=10){
     gval <- g/(tleng*trange)
   }
 
-  gout <- list(ginhom = gval, gtheo = matrix(rep(1, length(seqt) *
-                                                 length(seqr)), ncol = nxy), r = seqr, t = seqt)
+  gout <- list(ginhom = gval, gtheo = matrix(rep(1, length(t) *
+                                                 length(r)), ncol = nxy), r = r, t = t)
   class(gout) <- c("sumstlpp")
   attr(gout,"nxy") <- nxy
 

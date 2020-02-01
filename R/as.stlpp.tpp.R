@@ -5,7 +5,7 @@ tpp <- function(X){
   out <- ppx(data=X,coord.type = c("t"))
   names(out$data) <- "t"
   class(out) <- c("tpp","ppx")
-  out$time <- range(X)
+  out$time <- round(range(X),4)
   return(out)
   
 }
@@ -16,7 +16,7 @@ as.stlpp.tpp <- function(X){
   out <- ppx(data=X$data$t,coord.type = c("t"))
   names(out$data) <- "t"
   class(out) <- c("tpp","ppx")
-  out$time <- range(X$data$t)
+  out$time <- X$time
   return(out)
 }
 
@@ -24,7 +24,7 @@ as.stlpp.tpp <- function(X){
 print.tpp <- function(x)
 {
   if(!any(class(x)=="tpp")) stop("class(X) must be tpp")
-  cat("temporal point pattern \n");
+  cat("Temporal point pattern \n");
   if(npoints(x)>1){cat(paste0(npoints(x)," ", "points"),"\n")}
   else{cat(paste0(npoints(x)," ", "point"),"\n")};
   cat(paste0("Time period: [",range(x$time)[1],", ", range(x$time)[2],"]"),"\n")
@@ -32,12 +32,11 @@ print.tpp <- function(x)
 
 
 #' @export
-plot.tpp <- function(X,xlab=NULL,ylab=NULL,...){
+plot.tpp <- function(X,xlab="time",ylab="",main = "cumulative number",...){
   if(!any(class(X)=="tpp")) stop("class(X) must be tpp")
   xx <-  sort(X$data$t, index.return = TRUE)
   x  <-  X$data$t[xx$ix]
-  if (missing(xlab)) xlab <- "time"
-  plot(x, cumsum(x), type = "l", las = 1,xlab=xlab,ylab=ylab,
+  plot(x, cumsum(x), type = "l", las = 1,xlab=xlab,ylab=ylab,main=main,
        xlim=c(min(x),max(x)),...)
 }
 
@@ -53,7 +52,7 @@ density.tpp <- function(X,tbw,at=c("points","pixels"),...){
     d <- density(X,bw=tbw,...)
   }
   
-  if(missing(at)) at <- pixels
+  if(missing(at)) at <- "pixels"
   
   if(at=="points"){
     Tint <- d$y[findInterval(X$data$t, d$x)] * npoints(X)
@@ -61,8 +60,7 @@ density.tpp <- function(X,tbw,at=c("points","pixels"),...){
   if(at=="pixels"){
     Tint <- d$y * npoints(X)
   }
-  ############################################## space intensity
-  
+
   out <- Tint
   
   attr(out,"tempden") <- d

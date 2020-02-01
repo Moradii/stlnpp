@@ -43,7 +43,7 @@ density.stlpp <- function(X,lbw,tbw,at=c("points","pixels"),dimt=512,...){
     
     ldens <- density.lpp(pX,sigma = lbw,distance="euclidean",...)
     out <- lapply(X=1:length(Tint), function(i){
-      ldens*Tint[i]
+      ldens*Tint[i]/npoints(pX)
     })
   }
   

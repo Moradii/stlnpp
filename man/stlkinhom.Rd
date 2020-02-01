@@ -1,28 +1,29 @@
-\name{STLkinhom}
-\alias{STLkinhom}
-\title{spatio-temporal inhomogeneous K-function for point processes on linear networks}
+\name{STLKinhom}
+\alias{STLKinhom}
+\title{Inhomogeneous K-function for spatio-temporal  point processes on linear networks}
 \usage{
-STLkinhom(X,lambda=lambda,normaliz=FALSE,seqr=NULL,seqt=NULL)
+STLKinhom(X,lambda=lambda,normalize=FALSE,r=NULL,t=NULL,nxy=10)
 }
 \description{
-spatio-temporal inhomogeneous K-function for point processes on linear networks
+Inhomogeneous K-function for spatio-temporal  point processes on linear networks
 }
 \arguments{
   \item{X}{a realisation of a spatio-temporal point processes on a linear networks. }
   \item{lambda}{values of estimated intensity.}
   \item{normalize}{normalization factor to be considered.}
-  \item{seqr}{values of argument r where pair correlation function will be evaluated. optional.}
-  \item{seqt}{values of argument t where pair correlation function will be evaluated. optional.}
+  \item{r}{values of argument r where pair correlation function will be evaluated. optional.}
+  \item{t}{values of argument t where pair correlation function will be evaluated. optional.}
+  \item{nxy}{pixel array dimensions. optional.}
 }
 \details{
 This function calculates the inhomogeneous K-function for a spatio-temporal point processes on a linear network.
 }
 
 \value{
-an object of class \code{\link{sumstlpp}}.
+An object of class \code{\link{sumstlpp}}.
 }
 \references{
-Moradi, M.M. and Mateu, J. (2019). First and second-order characteristics of spatio-temporal point processes on linear networks.
+Moradi, M.M. and Mateu, J. (2019). First and second-order characteristics of spatio-temporal point processes on linear networks. Journal of Computational and Graphical Statistics. In press.
 }
 
 \author{
@@ -33,8 +34,8 @@ Mehdi Moradi <m2.moradi@yahoo.com>
 \code{\link{STLg}}, \code{\link{STLK}}, \code{\link{STLginhom}}
 }
 \examples{
-X = rpoistlpp(.2,a=0,b=5,L=easynet)
-lambda = density(X)
-STLKinhom(X,lambda=lambda)
+X <- rpoistlpp(.2,a=0,b=5,L=easynet)
+lambda <- density(X,at="points")
+STLKinhom(X,lambda=lambda,normalize=TRUE)
 }
 

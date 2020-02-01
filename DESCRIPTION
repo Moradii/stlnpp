@@ -1,7 +1,7 @@
 Package: stlnpp
 Type: Package
 Title: Spatio-temporal analysis of point patterns on linear networks
-Version: 0.3.4
+Version: 0.3.5
 Authors@R: person("Mehdi", "Moradi", email = "m2.moradi@yahoo.com",
   role = c("aut", "cre"))
 Maintainer: Mehdi Moradi <m2.moradi@yahoo.com>

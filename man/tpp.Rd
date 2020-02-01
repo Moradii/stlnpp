@@ -16,7 +16,7 @@ an object of class \code{\link{numeric}}, \code{\link{integer}} or \code{\link{v
 \details{
 Create a temporal point pattern.}
 \value{
-an object of class tpp.
+An object of class tpp.
 }
 \author{
 Mehdi Moradi <m2.moradi@yahoo.com>
@@ -24,4 +24,8 @@ Mehdi Moradi <m2.moradi@yahoo.com>
 
 \seealso{
 \code{\link{stlpp}}
+}
+
+\examples{
+tpp(runif(10))
 }

@@ -1,6 +1,6 @@
 \name{unique.stlpp}
 \alias{unique.stlpp}
-\title{extract unique points from a spatio-temporal point pattern on a linear network}
+\title{Extract unique points from a spatio-temporal point pattern on a linear network}
 \usage{
 \method{unique}{stlpp}(X,...)
 }
@@ -13,10 +13,10 @@ This function calculates the inhomogeneous pair correlation function for a spati
 }
 
 \value{
-a spatio-temporal point pattern on a linear network with no duplicated point.
+A spatio-temporal point pattern on a linear network with no duplicated point.
 }
 \references{
-Moradi, M.M. and Mateu, J. (2019). First and second-order characteristics of spatio-temporal point processes on linear networks.
+Moradi, M.M. and Mateu, J. (2019). First and second-order characteristics of spatio-temporal point processes on linear networks. Journal of Computational and Graphical Statistics. In press.
 }
 
 \author{

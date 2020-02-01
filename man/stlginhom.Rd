@@ -1,18 +1,20 @@
 \name{STLginhom}
 \alias{STLginhom}
-\title{spatio-temporal inhomogeneous pair correlation function for point processes on linear networks}
+\title{Inhomogeneous pair correlation function for spatio-temporal point processes on linear networks}
 \usage{
-STLginhom(X,lambda,normalize=FALSE,seqr=NULL,seqt=NULL)
+STLginhom(X,lambda,normalize=FALSE,r=NULL,t=NULL,nxy=10)
 }
 \description{
-spatio-temporal inhomogeneous pair correlation function for point processes on linear networks.
+Inhomogeneous pair correlation function for spatio-temporal  point processes on linear networks.
 }
 \arguments{
   \item{X}{a realisation of a spatio-temporal point processes on a linear networks. }
-  \item{lambda}{values of estimated intensity.}
+  \item{lambda}{values of estimated intensity at data points.}
   \item{normalize}{normalization factor to be considered.}
-  \item{seqr}{values of argument r where pair correlation function will be evaluated. optional.}
-  \item{seqt}{values of argument t where pair correlation function will be evaluated. optional.}
+  \item{r}{values of argument r where pair correlation function will be evaluated. optional.}
+  \item{t}{values of argument t where pair correlation function will be evaluated. optional.}
+    \item{nxy}{pixel array dimensions. optional.}
+
 }
 
 \details{
@@ -20,10 +22,10 @@ This function calculates the inhomogeneous pair correlation function for a spati
 }
 
 \value{
-an object of class \code{\link{sumstlpp}}.
+An object of class \code{\link{sumstlpp}}.
 }
 \references{
-Moradi, M.M. and Mateu, J. (2019). First and second-order characteristics of spatio-temporal point processes on linear networks.
+Moradi, M.M. and Mateu, J. (2019). First and second-order characteristics of spatio-temporal point processes on linear networks. Journal of Computational and Graphical Statistics. In press.
 }
 
 \author{
@@ -34,7 +36,7 @@ Mehdi Moradi <m2.moradi@yahoo.com>
 \code{\link{STLg}}, \code{\link{STLK}}, \code{\link{STLKinhom}}
 }
 \examples{
-X = rpoistlpp(.2,a=0,b=5,L=easynet)
-d = density(X)
-STLginhom(X,lambda=d)
+X <- rpoistlpp(.2,a=0,b=5,L=easynet)
+d <- density(X,at="points")
+STLginhom(X,lambda=d,normalize=TRUE)
 }

@@ -18,7 +18,7 @@ retention probability
 number of simulated realisations to be generated}
 }
 \details{
-see \code{\link{rthin}}}
+See \code{\link{rthin}}.}
 \value{
 An object of the same kind as X if nsim=1, or a list of such objects if nsim > 1.
 }
