@@ -34,6 +34,7 @@ Mehdi Moradi <m2.moradi@yahoo.com>
 }
 \examples{
 X <- rpoistlpp(.2,a=0,b=5,L=easynet)
-STLK(X)
+k <- STLK(X)
+plot(k)
 }
 

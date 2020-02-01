@@ -21,65 +21,65 @@ as.stlpp.tpp <- function(X){
 }
 
 #' @export
-print.tpp <- function(X)
+print.tpp <- function(x,...)
 {
-  if(!any(class(X)=="tpp")) stop("class(X) must be tpp")
+  if(!any(class(x)=="tpp")) stop("class(X) must be tpp")
   cat("Temporal point pattern \n");
-  if(npoints(X)>1){cat(paste0(npoints(X)," ", "points"),"\n")}
-  else{cat(paste0(npoints(X)," ", "point"),"\n")};
-  cat(paste0("Time period: [",range(X$time)[1],", ", range(X$time)[2],"]"),"\n")
+  if(npoints(x)>1){cat(paste0(npoints(x)," ", "points"),"\n")}
+  else{cat(paste0(npoints(x)," ", "point"),"\n")};
+  cat(paste0("Time period: [",range(x$time)[1],", ", range(x$time)[2],"]"),"\n")
 }
 
 
 #' @export
-plot.tpp <- function(X,xlab="time",ylab="",main = "cumulative number",...){
-  if(!any(class(X)=="tpp")) stop("class(X) must be tpp")
-  xx <-  sort(X$data$t, index.return = TRUE)
-  x  <-  X$data$t[xx$ix]
-  plot(x, cumsum(x), type = "l", las = 1,xlab=xlab,ylab=ylab,main=main,
-       xlim=c(min(x),max(x)),...)
+plot.tpp <- function(x,xlab="time",ylab="",main = "cumulative number",...){
+  if(!any(class(x)=="tpp")) stop("class(x) must be tpp")
+  xx <-  sort(x$data$t, index.return = TRUE)
+  x1  <-  x$data$t[xx$ix]
+  plot(x1, cumsum(x1), type = "l", las = 1,xlab=xlab,ylab=ylab,main=main,
+       xlim=c(min(x1),max(x1)),...)
 }
 
 #' @export
-density.tpp <- function(X,tbw,at=c("points","pixels"),...){
+density.tpp <- function(x,tbw,at=c("points","pixels"),...){
   
-  if (!inherits(X, "tpp")) stop("X should an object of class tpp")
+  if (!inherits(x, "tpp")) stop("x should an object of class tpp")
   
-  n <- npoints(X) # Emerge number of points
+  n <- npoints(x) # Emerge number of points
   
-  if (missing(tbw)) {d <- density(X$data$t,...)}
+  if (missing(tbw)) {d <- density(x$data$t,...)}
   else {
-    d <- density(X,bw=tbw,...)
+    d <- density(x,bw=tbw,...)
   }
   
   if(missing(at)) at <- "pixels"
   
   if(at=="points"){
-    Tint <- d$y[findInterval(X$data$t, d$x)] * npoints(X)
+    Tint <- d$y[findInterval(x$data$t, d$x)] * npoints(x)
   }
   if(at=="pixels"){
-    Tint <- d$y * npoints(X)
+    Tint <- d$y * npoints(x)
   }
 
   out <- Tint
   
   attr(out,"tempden") <- d
   attr(out,"bw") <- d$bw
-  attr(out,"time") <- X$data$t
+  attr(out,"time") <- x$data$t
   class(out) <- c("tppint")
   return(out)
 }
 
 #' @export
-print.tppint <- function(X){
-  print(as.vector(X))
+print.tppint <- function(x,...){
+  print(as.vector(x),...)
 }
 
 #' @export
-plot.tppint <- function(X,xlab=xlab,xlim=xlim,line=2.5,...){
-  if (inherits(X, "tppint") == FALSE) stop(" X must be from class tppint")
-  t <- attr(X,"time")
-  d <- attr(X,"tempden")
+plot.tppint <- function(x,xlab=xlab,xlim=xlim,line=2.5,...){
+  if (inherits(x, "tppint") == FALSE) stop(" x must be from class tppint")
+  t <- attr(x,"time")
+  d <- attr(x,"tempden")
   int <- length(t)*d$y
   
   if (missing(xlim)) xlim <- range(d$x)

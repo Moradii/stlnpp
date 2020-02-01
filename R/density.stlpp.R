@@ -1,16 +1,18 @@
+#' @import spatstat
+#' @import stats
 #' @export
-density.stlpp <- function(X,lbw,tbw,at=c("points","pixels"),dimt=512,...){
+density.stlpp <- function(x,lbw,tbw,at=c("points","pixels"),dimt=512,...){
   
-  if (!inherits(X, "stlpp")) stop("X should an object of class stlpp")
+  if (!inherits(x, "stlpp")) stop("x should an object of class stlpp")
   
   if(missing(at)) at <- "pixels"
-  ox <- X$data$x
-  oy <- X$data$y
-  ot <- X$data$t
+  ox <- x$data$x
+  oy <- x$data$y
+  ot <- x$data$t
   
-  L <-  X$domain
+  L <-  x$domain
   
-  n <- npoints(X) # Emerge number of points
+  n <- npoints(x) # Emerge number of points
   
   stint <- 0 # define the vacant vector to save the densities values per points
   
@@ -29,7 +31,7 @@ density.stlpp <- function(X,lbw,tbw,at=c("points","pixels"),dimt=512,...){
   }
   ############################################## space intensity
   
-  pX <- as.stlpp.lpp(X)
+  pX <- as.stlpp.lpp(x)
   if (missing(lbw)) lbw <- bw.scott.iso(pX)
   
   if(at=="points"){

@@ -38,5 +38,6 @@ Mehdi Moradi <m2.moradi@yahoo.com>
 \examples{
 X <- rpoistlpp(.2,a=0,b=5,L=easynet)
 d <- density(X,at="points")
-STLginhom(X,lambda=d,normalize=TRUE)
+g <- STLginhom(X,lambda=d,normalize=TRUE)
+plot(g)
 }

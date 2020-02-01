@@ -7,17 +7,17 @@
 }
 
 #' @export
-as.data.frame.sumstlpp <- function(X){
+as.data.frame.sumstlpp <- function(x,...){
 
-  r <- rep(X$r,times=attr(X,"nxy"))
-  t <- rep(X$t,each=attr(X,"nxy"))
-  f <- as.vector(X[[1]])
-  ftheo <- as.vector(X[[2]])
-  out <- data.frame(r=r,t=t,f=f,ftheo=ftheo)
-  if(any(names(X)=="Kest"))  colnames(out) <- c("r","t","Kest","Ktheo")
-  if(any(names(X)=="Kinhom"))  colnames(out) <- c("r","t","Kinhom","Ktheo")
-  if(any(names(X)=="gest"))  colnames(out) <- c("r","t","gest","gtheo")
-  if(any(names(X)=="ginhom"))  colnames(out) <- c("r","t","ginhom","gtheo")
+  r <- rep(x$r,times=attr(x,"nxy"))
+  t <- rep(x$t,each=attr(x,"nxy"))
+  f <- as.vector(x[[1]])
+  ftheo <- as.vector(x[[2]])
+  out <- data.frame(r=r,t=t,f=f,ftheo=ftheo,...)
+  if(any(names(x)=="Kest"))  colnames(out) <- c("r","t","Kest","Ktheo")
+  if(any(names(x)=="Kinhom"))  colnames(out) <- c("r","t","Kinhom","Ktheo")
+  if(any(names(x)=="gest"))  colnames(out) <- c("r","t","gest","gtheo")
+  if(any(names(x)=="ginhom"))  colnames(out) <- c("r","t","ginhom","gtheo")
 
   return(out)
 }

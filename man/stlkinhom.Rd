@@ -36,6 +36,7 @@ Mehdi Moradi <m2.moradi@yahoo.com>
 \examples{
 X <- rpoistlpp(.2,a=0,b=5,L=easynet)
 lambda <- density(X,at="points")
-STLKinhom(X,lambda=lambda,normalize=TRUE)
+k <- STLKinhom(X,lambda=lambda,normalize=TRUE)
+plot(k)
 }
 

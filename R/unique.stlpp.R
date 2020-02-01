@@ -1,8 +1,8 @@
 #' @export
-unique.stlpp <- function(X,...){
-  if (!inherits(X, "stlpp")) stop("X should be from class stlpp")
+unique.stlpp <- function(x,...){
+  if (!inherits(x, "stlpp")) stop("X should be from class stlpp")
 
-  Y <- unique(as.data.frame(X$data),...)
-  X <- as.stlpp(Y$x,Y$y,Y$t,L=domain(X))
+  Y <- unique(as.data.frame(x$data),...)
+  X <- as.stlpp(Y$x,Y$y,Y$t,L=domain(x))
   return(X)
 }

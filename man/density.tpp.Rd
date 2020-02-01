@@ -7,10 +7,10 @@ Kernel estimation of intensity of temporal point patterns
 Kernel estimation of intensity of temporal point patterns.
 }
 \usage{
-\method{density}{tpp}(X,tbw,at=c("points","pixels"),...)
+\method{density}{tpp}(x,tbw,at=c("points","pixels"),...)
 }
 \arguments{
-  \item{X}{
+  \item{x}{
 a temporal point pattern (of class \code{\link{tpp}})
 }
 \item{tbw}{time smoothing bandwidth}
