@@ -2,13 +2,13 @@
 #' @export
 plot.stlpp=function(x,xlab=xlab,...){
 
-  if (inherits(x, "stlpp") == TRUE) {
-    par(mfrow = c(1, 2), pty = "s")
-    plot(as.stlpp.lpp(x), main = "xy-locations on linear network",...)
-  }
-
-  else (stop("x should be an object of stlpp"))
-
+  if (inherits(x, "stlpp") == FALSE) stop("x should be an object of stlpp")
+  oldpar <- par(no.readonly = TRUE)
+  on.exit(par(oldpar)) 
+  
+  par(mfrow = c(1, 2), pty = "s")
+  plot(as.stlpp.lpp(x), main = "xy-locations on linear network",...)
+  
   xx = sort(as.data.frame(x$data[,3])[,1], index.return = TRUE)
   x1 = x$data[xx$ix, ]
   x1=as.data.frame(x1)
@@ -21,6 +21,9 @@ plot.stlpp=function(x,xlab=xlab,...){
 #' @export
 plot.stlppint <- function(x,style=style,xlab=xlab,xlim=xlim,...){
   if (inherits(x, "stlppint") == FALSE) stop(" x must be from class stlppint")
+  oldpar <- par(no.readonly = TRUE)
+  on.exit(par(oldpar))
+  
   t <- attr(x,"time")
   par(mfrow=c(1,2))
   d <- attr(x,"tempden")
