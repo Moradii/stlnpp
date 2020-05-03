@@ -1,6 +1,6 @@
 \name{density.stlpp}
 \alias{density.stlpp}
-\title{Kernel estimation of intensity of space-time point patterns on a linear network}
+\title{Kernel estimation of intensity of spatio-temporal point patterns on a linear network}
 \usage{
 \method{density}{stlpp}(x,lbw,tbw,at=c("points","pixels"),dimt=512,...)
 }
@@ -18,13 +18,15 @@ Kernel density estimation of a spatio-temporal point pattern on a linear network
 }
 
 \details{
-Kernel smoothing is applied to the spatio-temporal point pattern x using methods in Moradi et al (2019). If lbw and tbw are not given, then they will be selected using \code{\link{bw.nrd0}} and \code{\link{bw.scott.iso}} respectively.
+Kernel smoothing is applied to the spatio-temporal point pattern x using methods in Moradi et al (2019). The function computes estimated intensities based on first-order separability assumption. Estimated intensity values of the marginal spatial point pattern on the linear network will be obtained using the fast kernel smoothing technique of Rakshit et al. (2019) and function  \code{\link{densityQuick.lpp}}, and the estimated intensity values of the marginal temporal point pattern will be estimated suing the function \code{\link{density}}.
+
+If lbw and tbw are not given, then they will be selected using \code{\link{bw.nrd0}} and \code{\link{bw.scott.iso}} respectively.
 }
 
 \value{
-if \code{at="points"}: a vector of intensity values at the data points of x.
+If \code{at="points"}: a vector of intensity values at the data points of x.
 
-if \code{at="pixels"}: a list of images on linear network. Each image represents an estimated saptio-temporal intensity at a fixed time.
+If \code{at="pixels"}: a list of images on linear network. Each image represents an estimated saptio-temporal intensity at a fixed time.
 check the attributes for more accommodated outputs.
 }
 

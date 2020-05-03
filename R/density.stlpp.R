@@ -17,7 +17,7 @@ density.stlpp <- function(x,lbw,tbw,at=c("points","pixels"),dimt=512,...){
   stint <- 0 # define the vacant vector to save the densities values per points
   
   if (missing(tbw)) {
-    d <- density(ot)
+    d <- density(ot,n=dimt)
   }
   else{
     d <- density(ot,bw=tbw,n=dimt)
