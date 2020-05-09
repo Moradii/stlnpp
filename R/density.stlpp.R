@@ -58,6 +58,8 @@ density.stlpp <- function(x,lbw,tbw,at=c("points","pixels"),dimt=512,...){
   attr(out,"netint") <- ldens
   attr(out,"time") <- ot
   attr(out,"bw") <- c("sigma_l"=lbw,"sigma_t"=d$bw)
+  attr(out,"stlpp") <- X
+  
   
   return(out)
   
