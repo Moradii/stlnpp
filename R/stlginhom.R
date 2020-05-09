@@ -5,7 +5,7 @@ STLginhom <- function(X,lambda,normalize=FALSE,r=NULL,t=NULL,nxy=10){
   if (!inherits(X, "stlpp")) stop("X should be from class stlpp")
 
 
-  Y <- as.stlpp.lpp(X)
+  Y <- as.lpp.stlpp(X)
   l <- domain(Y)
   tleng <- summary(l)$totlength
   n <- npoints(Y)

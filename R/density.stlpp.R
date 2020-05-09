@@ -31,7 +31,7 @@ density.stlpp <- function(x,lbw,tbw,at=c("points","pixels"),dimt=512,...){
   }
   ############################################## space intensity
   
-  pX <- as.stlpp.lpp(x)
+  pX <- as.lpp.stlpp(x)
   if (missing(lbw)) lbw <- bw.scott.iso(pX)
   
   if(at=="points"){

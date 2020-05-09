@@ -18,7 +18,7 @@ densityVoronoi.stlpp <- function(X, f = 1, nrep = 1,
   Xt <- lpp(X=cbind(X$data$t,rep(0,n)), 
             L=linnet_interval(startp=X$time[1], endp=X$time[2]))
   
-  Xs <- as.stlpp.lpp(X)
+  Xs <- as.lpp.stlpp(X)
   
 if(separable){
     

@@ -1,5 +1,5 @@
-\name{as.stlpp.lpp}
-\alias{as.stlpp.lpp}
+\name{as.lpp.stlpp}
+\alias{as.lpp.stlpp}
 
 \title{
 Methods for space-time point patterns on a linear network.
@@ -9,11 +9,14 @@ This function projects an object of class \code{\link{stlpp}} to a linear networ
 }
 
 \usage{
-as.stlpp.lpp(X)
+\method{as.lpp}{stlpp}(x,...)
 }
 
 \arguments{
-  \item{X}{ an object of class \code{\link{stlpp}}
+\item{x}{an object of class \code{\link{stlpp}}
+}
+\item{...}{
+arguments passed to \code{\link{as.lpp}}
 }
 }
 \details{
@@ -38,5 +41,5 @@ data(easynet)
 x <- runifpointOnLines(40, easynet)
 t1 <- sample(1:10,40,replace=TRUE)
 Y <- as.stlpp(x,t=t1,L=easynet)
-as.stlpp.lpp(Y)
+as.lpp.stlpp(Y)
 }

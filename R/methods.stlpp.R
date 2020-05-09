@@ -22,7 +22,7 @@
     
     t <- i$data$t
     n <- npoints(i)
-    is <- as.stlpp.lpp(i)
+    is <- as.lpp.stlpp(i)
     
     id <- findInterval(t,tgrid)
     id[which(id==0)] <- 1

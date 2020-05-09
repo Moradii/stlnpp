@@ -7,7 +7,7 @@ plot.stlpp=function(x,xlab=xlab,...){
   on.exit(par(oldpar)) 
   
   par(mfrow = c(1, 2), pty = "s")
-  plot(as.stlpp.lpp(x), main = "xy-locations on linear network",...)
+  plot(as.lpp.stlpp(x), main = "xy-locations on linear network",...)
   
   xx = sort(as.data.frame(x$data[,3])[,1], index.return = TRUE)
   x1 = x$data[xx$ix, ]

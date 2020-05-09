@@ -34,7 +34,7 @@ Mehdi Moradi <m2.moradi@yahoo.com>
 }
 
 \seealso{
-\code{\link{as.stlpp.lpp}}, \code{\link{runifpointOnLines}}, \code{\link{as.lpp}}
+\code{\link{as.lpp.stlpp}}, \code{\link{runifpointOnLines}}, \code{\link{as.lpp}}
 }
 \examples{
 data(easynet)
@@ -42,7 +42,7 @@ x <- runifpointOnLines(40, easynet)
 t1 <- sample(1:10,40,replace=TRUE)
 Y <- as.stlpp(x,t=t1,L=easynet)
 
-Z <- as.stlpp.lpp(Y)
+Z <- as.lpp.stlpp(Y)
 t2 <- sample(1:10,40,replace=TRUE)
 W <- as.stlpp(Z,t=t2)
 }
