@@ -20,7 +20,7 @@ fraction (between 0 and 1 inclusive) of the data points that will be used to bui
 number of independent repetitions of the randomised procedure
 }
 \item{separable}{
-logical. If FALSE, it then calculates the Pseudo-separable estimate
+logical. If FALSE, it then calculates a pseudo-separable estimate
 }
 \item{at}{
 string specifying whether to return the intensity values at a grid of pixel locations and time (at="pixels") or only at the points of X (at="points"). default is to estimate the intensity at pixels
@@ -35,7 +35,7 @@ arguments passed to \code{\link{densityVoronoi.lpp}}
 \details{
 This function computes intensity estimates for spatio-temporal point patterns on linear networks using Voronoi-Dirichlet tessellation. Both first-order separability and pseudo-separability assumptions are accommodated in the function.
 
-If separable=TRUE, the estimated intensities will be a product of the estimated intensities in space and those of time. Each will be obtained using \code{\link{densityVoronoi.lpp}}. If f=1, the function calculates the estimations based on the original Voronoi intensity estimator.
+If separable=TRUE, the estimated intensities will be a product of the estimated intensities on the network and those on time. Each will be obtained using \code{\link{densityVoronoi.lpp}}. If f=1, the function calculates the estimations based on the original Voronoi intensity estimator.
 
 
 If separable=FALSE, the estimated intensities will be calculated based on a subsampling technique explained in Mateu et al. (2019). nrep subsamples will be obtained from X based on a given retention probability f, the function \code{\link{densityVoronoi.stlnpp}}, considering separable=TRUE and f=1, will be applied to each obtained subsample, and finally, the estimated intensities will be the sum of all obtained estimated intensities from all subsamples divided by the (f \times nrep).

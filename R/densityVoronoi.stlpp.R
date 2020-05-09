@@ -76,6 +76,7 @@ if(at=="points"){
   }
   attr(out,"tgrid") <- tgrid
   attr(out,"time") <- X$data$t
+  attr(out,"stlpp") <- X
 return(out)
 }
 
