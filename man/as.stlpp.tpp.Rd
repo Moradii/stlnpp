@@ -1,5 +1,5 @@
-\name{as.stlpp.tpp}
-\alias{as.stlpp.tpp}
+\name{as.tpp.stlpp}
+\alias{as.tpp.stlpp}
 
 \title{
 Methods for space-time point patterns on a linear network.
@@ -7,10 +7,10 @@ Methods for space-time point patterns on a linear network.
 \description{
 This function converts an object of class \code{\link{stlpp}} to  class \code{\link{tpp}}.}
 \usage{
-as.stlpp.tpp(X)
+\method{as.tpp}{stlpp}(X)
 }
 \arguments{
-  \item{X}{an object of class \code{\link{stlpp}}}
+\item{X}{an object of class \code{\link{stlpp}}}
 }
 \details{
 This function projects the space-time point pattern X on L times T into the time interval T.
@@ -30,5 +30,5 @@ Mehdi Moradi <m2.moradi@yahoo.com>
 
 \examples{
 X <- rpoistlpp(10,1,2,easynet)
-as.stlpp.tpp(X)
+as.tpp.stlpp(X)
 }

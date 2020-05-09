@@ -11,7 +11,7 @@ tpp <- function(X){
 }
 
 #' @export
-as.stlpp.tpp <- function(X){
+as.tpp.stlpp <- function(X){
   if(!any(class(X)=="stlpp")) stop("class(X) must be stlpp")
   out <- ppx(data=X$data$t,coord.type = c("t"))
   names(out$data) <- "t"
