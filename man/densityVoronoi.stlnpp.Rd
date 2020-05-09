@@ -1,5 +1,5 @@
-\name{densityVoronoi.stlnpp}
-\alias{densityVoronoi.stlnpp}
+\name{densityVoronoi.stlpp}
+\alias{densityVoronoi.stlpp}
 \title{
 Intensity estimate of spatio-temporal point pattern using Voronoi-Dirichlet tessellation}
 \description{
@@ -38,7 +38,7 @@ This function computes intensity estimates for spatio-temporal point patterns on
 If separable=TRUE, the estimated intensities will be a product of the estimated intensities on the network and those on time. Each will be obtained using \code{\link{densityVoronoi.lpp}}. If f=1, the function calculates the estimations based on the original Voronoi intensity estimator.
 
 
-If separable=FALSE, the estimated intensities will be calculated based on a subsampling technique explained in Mateu et al. (2019). nrep subsamples will be obtained from X based on a given retention probability f, the function \code{\link{densityVoronoi.stlnpp}}, considering separable=TRUE and f=1, will be applied to each obtained subsample, and finally, the estimated intensities will be the sum of all obtained estimated intensities from all subsamples divided by the (f \times nrep).
+If separable=FALSE, the estimated intensities will be calculated based on a subsampling technique explained in Mateu et al. (2019). nrep subsamples will be obtained from X based on a given retention probability f, the function \code{\link{densityVoronoi.stlpp}}, considering separable=TRUE and f=1, will be applied to each obtained subsample, and finally, the estimated intensities will be the sum of all obtained estimated intensities from all subsamples divided by the (f * nrep).
 
 }
 \value{

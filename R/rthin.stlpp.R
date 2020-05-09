@@ -9,9 +9,7 @@ rthin.stlpp <- function(X,P=P,nsim=1){
     OK <- (u<P)
     return(sub.stlpp(X,OK))
 
-  }
-
-  else {
+  }else {
     out <- list()
     for (i in 1:nsim) {
       u <- runif(npoints(X),0,1)

@@ -1,7 +1,7 @@
 #' @export
 "[.stlpp" <- function(x, i) {
   d <- as.data.frame(x$data[i,])
-  out <- as.stlpp(d$x,d$y,d$t,L=X$domain)
+  out <- as.stlpp(d$x,d$y,d$t,L=x$domain)
   out$time <- x$time
   return(out)
 }
@@ -17,7 +17,7 @@
     if(!is.null(attr(x,"tgrid"))){
       tgrid <- attr(x,"tgrid")  
     }else{
-      tgrid <- attr(dk,"tempden")$x
+      tgrid <- attr(x,"tempden")$x
     }
     
     t <- i$data$t
@@ -72,20 +72,19 @@ stlpp <- function(X,L,T,...){
 }
 
 #' @export
-as.linim.stlppint <- function(x){
-  if (inherits(x, "stlppint") == FALSE) stop(" x must be from class stlppint")
-  if(!is.null(attr(x,"tgrid"))){
-    delta <- attr(x,"tgrid")[2]-attr(x,"tgrid")[1]
+as.linim.stlppint <- function(X){
+  if (inherits(X, "stlppint") == FALSE) stop(" X must be from class stlppint")
+  if(!is.null(attr(X,"tgrid"))){
+    delta <- attr(X,"tgrid")[2]-attr(X,"tgrid")[1]
   }else{
-    delta <- attr(x,"tempden")$x[2]-attr(x,"tempden")$x[1]
+    delta <- attr(X,"tempden")$x[2]-attr(X,"tempden")$x[1]
   }
   
-  L <- domain(attr(x,"stlpp"))
-  out <- x[[1]]
-  for (i in 1:length(x)) {
-    out <- out+x[[i]]
+  out <- X[[1]]
+  for (i in 1:length(X)){
+    out <- out+X[[i]]
   }
-  out <- (out-x[[1]])*delta
+  out <- (out-X[[1]])*delta
   return(out)
 }
 

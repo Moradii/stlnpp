@@ -8,6 +8,8 @@
 \alias{print.sumstlpp}
 \alias{[.stlpp}
 \alias{[.stlppint}
+\alias{as.linim.stlppint}
+\alias{as.tppint.stlppint}
 
 
 
@@ -27,11 +29,11 @@ facets = FALSE, ticktype = "detailed", resfac = 5,xlab="r = distance",ylab="t = 
 \method{print}{sumstlpp}(x,...)
 \method{[}{stlpp}(x,i)
 \method{[}{stlppint}(x,i)
-\method{as.linim}{stlppint}(x)
+\method{as.linim}{stlppint}(X)
 \method{as.tppint}{stlppint}(x)
 }
 \arguments{
-\item{x}{an object of classes \code{\link{stlpp}}, stlppint or sumstlpp
+\item{x,X}{an object of classes \code{\link{stlpp}}, stlppint or sumstlpp
 }
 \item{style}{
 style of plot
@@ -52,7 +54,7 @@ the x,y label of the plot
 giving the x limits for the plot
 }
 \item{i}{
-an object of class \code{\link{stlpp}} or \code{\link{stlppint}}
+an object of class \code{\link{stlpp}} or stlppint
 }
 \item{...}{
 gracphical arguments passed to \code{\link{plot}}/\code{\link{print}}
