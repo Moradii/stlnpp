@@ -27,7 +27,8 @@ facets = FALSE, ticktype = "detailed", resfac = 5,xlab="r = distance",ylab="t = 
 \method{print}{sumstlpp}(x,...)
 \method{[}{stlpp}(x,i)
 \method{[}{stlppint}(x,i)
-
+\method{as.linim}{stlppint}(x)
+\method{as.tppint}{stlppint}(x)
 }
 \arguments{
 \item{x}{an object of classes \code{\link{stlpp}}, stlppint or sumstlpp

@@ -79,13 +79,24 @@ print.tppint <- function(x,...){
 plot.tppint <- function(x,xlab=xlab,xlim=xlim,line=2.5,...){
   if (inherits(x, "tppint") == FALSE) stop(" x must be from class tppint")
   t <- attr(x,"time")
-  d <- attr(x,"tempden")
-  int <- length(t)*d$y
   
-  if (missing(xlim)) xlim <- range(d$x)
-  OK <- d$x>=range(xlim)[1] & d$x<=range(xlim)[2]
+  if(!is.null(attr(x,"tempden"))){
+    d <- attr(x,"tempden")
+    int <- length(t)*d$y
+    tgrid <- d$x
+  }else{
+    tgrid <- attr(x,"tgrid")
+    int <- x 
+  }
+  
+  
+  if (missing(xlim)) xlim <- range(tgrid)
+  
+  OK <- tgrid>=range(xlim)[1] & tgrid<=range(xlim)[2]
+  
   if (missing(xlab)) xlab <- "time"
-  plot(d$x[OK],int[OK],
+  
+  plot(tgrid[OK],int[OK],
        ylab="",main="",type="l",ylim = c(0,max(int,table(round(t)))),xlab=xlab,xlim = xlim,...)
   points(table(round(t)))
   title(ylab=expression(hat(lambda)[time]), line=line,cex=3,...)

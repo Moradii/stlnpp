@@ -71,3 +71,42 @@ stlpp <- function(X,L,T,...){
   
 }
 
+#' @export
+as.linim.stlppint <- function(x){
+  if (inherits(x, "stlppint") == FALSE) stop(" x must be from class stlppint")
+  if(!is.null(attr(x,"tgrid"))){
+    delta <- attr(x,"tgrid")[2]-attr(x,"tgrid")[1]
+  }else{
+    delta <- attr(x,"tempden")$x[2]-attr(x,"tempden")$x[1]
+  }
+  
+  L <- domain(attr(x,"stlpp"))
+  out <- x[[1]]
+  for (i in 1:length(x)) {
+    out <- out+x[[i]]
+  }
+  out <- (out-x[[1]])*delta
+  return(out)
+}
+
+#' @export
+as.tppint.stlppint <- function(x){
+  if (inherits(x, "stlppint") == FALSE) stop(" x must be from class stlppint")
+  if(!is.null(attr(x,"tgrid"))){
+    delta <- attr(x,"tgrid")
+  }else{
+    delta <- attr(x,"tempden")$x
+  }
+  out <- unlist(lapply(x, integral.linim))
+  
+  class(out) <- c("tppint")
+  
+  if(!is.null(attr(x,"tgrid"))){
+    attr(out,"tgrid") <- attr(x,"tgrid")
+  }else{
+    attr(out,"tempden") <- attr(x,"tempden")
+  }  
+  attr(out,"time") <- attr(x,"time")
+  
+  return(out)
+}

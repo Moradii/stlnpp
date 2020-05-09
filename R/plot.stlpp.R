@@ -22,6 +22,7 @@ plot.stlpp=function(x,xlab=xlab,...){
 plot.stlppint <- function(x,style=style,xlab=xlab,xlim=xlim,...){
   
   if (inherits(x, "stlppint") == FALSE) stop(" x must be from class stlppint")
+  
   oldpar <- par(no.readonly = TRUE)
   on.exit(par(oldpar))
   
@@ -29,8 +30,8 @@ plot.stlppint <- function(x,style=style,xlab=xlab,xlim=xlim,...){
   par(mfrow=c(1,2))
   
   if(is.null(attr(x,"tempden")) & is.null(attr(x,"tint"))){
-    onL <- as.stlppint.linim(x)
-    onT <- as.stlppint.tppint(x)
+    onL <- as.linim.stlppint(x)
+    onT <- as.tppint.stlppint(x)
     
     tgrid <- attr(onT,"tgrid")
     
