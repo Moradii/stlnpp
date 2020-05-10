@@ -51,7 +51,7 @@ density.stlpp <- function(x,lbw,tbw,at=c("points","pixels"),dimt=512,...){
   
   
   names(lbw) <- NULL
-  if(at=="points") class(out) <- c("numeric","stlppint")
+  if(at=="points") class(out) <- c("numeric")
   if(at=="pixels") class(out) <- c("list","stlppint")
   
   attr(out,"tempden") <- d
