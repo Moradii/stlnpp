@@ -29,7 +29,7 @@ facets = FALSE, ticktype = "detailed", resfac = 5,xlab="r = distance",ylab="t = 
 \method{print}{sumstlpp}(x,...)
 \method{[}{stlpp}(x,i)
 \method{[}{stlppint}(x,i)
-\method{as.linim}{stlppint}(X)
+\method{as.linim}{stlppint}(X,...)
 \method{as.tppint}{stlppint}(x)
 }
 \arguments{
@@ -57,6 +57,7 @@ giving the x limits for the plot
 an object of class \code{\link{stlpp}} or stlppint
 }
 \item{...}{
+either ignore for \code{\link{as.linim}}, or
 gracphical arguments passed to \code{\link{plot}}/\code{\link{print}}
 }
 }

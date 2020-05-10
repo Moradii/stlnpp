@@ -72,7 +72,7 @@ stlpp <- function(X,L,T,...){
 }
 
 #' @export
-as.linim.stlppint <- function(X){
+as.linim.stlppint <- function(X,...){
   if (inherits(X, "stlppint") == FALSE) stop(" X must be from class stlppint")
   if(!is.null(attr(X,"tgrid"))){
     delta <- attr(X,"tgrid")[2]-attr(X,"tgrid")[1]
@@ -80,11 +80,14 @@ as.linim.stlppint <- function(X){
     delta <- attr(X,"tempden")$x[2]-attr(X,"tempden")$x[1]
   }
   
-  out <- X[[1]]
+  v <- X[[1]]$v
+  v[!is.na(v)] <- 0
+  L <- attr(X,"stlpp")$domain
+  out <- as.linim(v,L=L,...)
   for (i in 1:length(X)){
     out <- out+X[[i]]
   }
-  out <- (out-X[[1]])*delta
+  out <- out*delta
   return(out)
 }
 
