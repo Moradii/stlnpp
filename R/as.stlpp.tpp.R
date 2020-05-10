@@ -1,11 +1,13 @@
 #' @export
-tpp <- function(X){
+tpp <- function(X,a,b){
   
   stopifnot(inherits(X,"numeric") | inherits(X,"integer") | inherits(X,"vector"))
   out <- ppx(data=X,coord.type = c("t"))
   names(out$data) <- "t"
   class(out) <- c("tpp","ppx")
-  out$time <- round(range(X),4)
+  if(missing(a)) a <- round(range(X),4)[1]
+  if(missing(b)) b <- round(range(X),4)[2]
+  out$time <- c(a,b)
   return(out)
   
 }
