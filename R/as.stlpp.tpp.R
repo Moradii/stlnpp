@@ -66,7 +66,12 @@ density.tpp <- function(x,tbw,at=c("points","pixels"),...){
   attr(out,"tempden") <- d
   attr(out,"bw") <- d$bw
   attr(out,"time") <- x$data$t
-  class(out) <- c("tppint")
+  if(at=="points"){
+    class(out) <- c("numeric")  
+  }else{
+    class(out) <- c("tppint")
+  }
+  
   return(out)
 }
 
