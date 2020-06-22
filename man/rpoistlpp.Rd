@@ -9,7 +9,7 @@ simulating a realisation of a spatio-temporal poisson point process on a linear 
 }
 
 \arguments{
-  \item{lambda}{intensity of the point process. It can be either a number or a function of location and time.}
+  \item{lambda}{intensity of the point process. It can be either a number, function of location and time, or an abject of class \code{stlppint}.}
   \item{a}{lower bound of time period.}
   \item{b}{upper bound of time period.}
   \item{L}{a linear network.}
