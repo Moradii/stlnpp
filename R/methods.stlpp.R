@@ -62,7 +62,7 @@ stlpp <- function(X,L,T,...){
   if(missing(L)) stop("L is not introduced")
   
   Y <- lpp(X,L,...)
-  d <- cbind(as.data.frame(Y),T)
+  d <- cbind(as.data.frame(Y),t=T)
   
   out <- ppx(data=d[,c(1,2,5)],domain = L,coord.type = c("s","s","t"))
   class(out) <- c("stlpp","ppx")
