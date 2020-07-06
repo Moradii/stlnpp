@@ -79,6 +79,11 @@ rpoistlpp <-  function(lambda,a,b,L,check=FALSE,lmax=NULL,nsim=1){
   }
   else if(any(class(lambda)=="stlppint")){
     
+    Y <- attr(lambda,"stlpp")
+    a <- Y$time[1]
+    b <- Y$time[2]
+    L <- Y$domain
+    
     lmax <- max(unlist(lapply(lambda, max)))
     
     mean <- lmax*volume(L)*(b-a)
