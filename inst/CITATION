@@ -1,23 +1,10 @@
 citHeader("To cite stlnpp in publications, please use:")
 
 citEntry(entry = "manual",
-  author = "Mehdi Moradi",
+  author = "Mehdi Moradi, Ottmar Cronie, and Jorge Mateu",
   title = "stlnpp: Spatio-temporal analysis of point patterns on linear networks",
   publisher = "",
-  year = "2019",
+  year = "2020",
   url = "",
-  textVersion = "M. Moradi. (2019) stlnpp: Spatio-temporal analysis of point patterns on linear networks."
-)
-
-citEntry(entry = "article",
-  author = "Moradi, M Mehdi and Mateu, Jorge",
-  title = "First and second-order characteristics of spatio-temporal point processes on linear networks",
-   journal="Journal of Computational and Graphical Statistics",
-  volume="",
-  number="",
-  pages="",
-  publisher = "Taylor & Francis",
-  year = "2019",
-  url = "",
-  textVersion = "Moradi, M.M. and Mateu, J. (2019). First and second-order characteristics of spatio-temporal point processes on linear networks. Journal of Computational and Graphical Statistics."
+  textVersion = "M. Moradi, O. Cronie, and J. Mateu. (2020) stlnpp: Spatio-temporal analysis of point patterns on linear networks."
 )
