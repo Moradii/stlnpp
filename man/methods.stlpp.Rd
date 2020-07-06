@@ -54,7 +54,7 @@ the x,y label of the plot
 giving the x limits for the plot
 }
 \item{i}{
-an object of class \code{\link{stlpp}} or stlppint
+numeric, logical, or an object of class \code{\link{stlpp}}
 }
 \item{...}{
 either ignore for \code{\link{as.linim}}, or

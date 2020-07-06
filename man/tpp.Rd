@@ -1,7 +1,8 @@
 \name{tpp}
 \alias{tpp}
 \title{
-Create a temporal point pattern.}
+Create a temporal point pattern
+}
 \description{
 Create an object of class \code{\link{tpp}} that represents a temporal point pattern.}
 \usage{

@@ -10,7 +10,7 @@ rpoistpp(lambda,a,b,check=FALSE,lmax=NULL,nsim=1)
 }
 \arguments{
 \item{lambda}{
-intensity of the point process. It can be either a number or a function of location and time.
+intensity of the point process. It can be either a number, a function of location and time, or an object of class \code{tppint}.
 }
 \item{a}{
 lower bound of time period.
