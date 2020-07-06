@@ -22,6 +22,7 @@ densityVoronoi.tpp <- function(X, f = 1, nrep = 1,
     attr(out1,"time") <- X$data$t
     
     attr(out1,"tgrid") <- out$xcol
+    attr(out1,"tpp") <- X
     
     return(out1)
     }
