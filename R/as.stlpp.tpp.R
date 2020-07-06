@@ -5,8 +5,8 @@ tpp <- function(X,a,b){
   out <- ppx(data=X,coord.type = c("t"))
   names(out$data) <- "t"
   class(out) <- c("tpp","ppx")
-  if(missing(a)) a <- round(range(X),4)[1]
-  if(missing(b)) b <- round(range(X),4)[2]
+  if(missing(a)) a <- floor(min(X))
+  if(missing(b)) b <- ceiling(max(X))
   out$time <- c(a,b)
   return(out)
   
@@ -68,6 +68,8 @@ density.tpp <- function(x,tbw,at=c("points","pixels"),...){
   attr(out,"tempden") <- d
   attr(out,"bw") <- d$bw
   attr(out,"time") <- x$data$t
+  attr(out,"tpp") <- x
+  attr(out,"tgrid") <- d$x
   if(at=="points"){
     class(out) <- c("numeric")  
   }else{
@@ -103,8 +105,51 @@ plot.tppint <- function(x,xlab=xlab,xlim=xlim,line=2.5,...){
   
   if (missing(xlab)) xlab <- "time"
   
-  plot(tgrid[OK],int[OK],
+  plot(tgrid[OK],as.numeric(int)[OK],
        ylab="",main="",type="l",ylim = c(0,max(int,table(round(t)))),xlab=xlab,xlim = xlim,...)
   points(table(round(t)))
   title(ylab=expression(hat(lambda)[time]), line=line,cex=3,...)
+}
+
+
+#' @export
+"[.tpp" <- function(x, i) {
+  stopifnot(any(class(i)=="numeric", class(i)=="logical"))
+  
+  d <- as.data.frame(x$data[i,])
+  out <- tpp(d$t)
+  out$time <- x$time
+  return(out)
+}
+
+
+#' @export
+"[.tppint" <- function(x, i){
+  
+  stopifnot(any(class(i)=="tpp", class(i)=="numeric", class(i)=="logical"))
+  
+  if(inherits(i, "tpp")){
+    
+    if(!is.null(attr(x,"tgrid"))){
+      tgrid <- attr(x,"tgrid")  
+    }else{
+      tgrid <- attr(x,"tempden")$x
+    }
+    
+    t <- i$data$t
+    n <- npoints(i)
+    # is <- as.lpp.stlpp(i)
+    
+    id <- findInterval(t,tgrid)
+    id[which(id==0)] <- 1
+    out <- c()
+    for (j in 1:n){
+      out[j] <- as.numeric(x)[id[j]]
+    }
+    return(out)
+  }
+  else{
+    tp <- attr(x,"tpp")
+    return(x[tp][as.numeric(i)])
+  }
 }
