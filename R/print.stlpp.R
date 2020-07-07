@@ -5,7 +5,7 @@
 #' @export
 print.stlpp <- function(x,...)
 {
-  cat("Spatio-temporal point pattern on linear network \n");
+  cat("Spatio-temporal point pattern on a linear network \n");
  if(npoints(x)>1){cat(paste0(npoints(x)," ", "points"),"\n")}
   else{cat(paste0(npoints(x)," ", "point"),"\n")};
   print(x$domain,...);cat(paste0("Time period: [",x$time[1],", ", x$time[2],"]"),"\n")
