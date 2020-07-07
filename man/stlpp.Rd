@@ -13,7 +13,7 @@ stlpp(X, L, T, ...)
   \item{X}{
 Locations of the points. A matrix or data frame of coordinates, or a point pattern object (of class "ppp") or other data acceptable to \code{\link{as.ppp}} or  \code{\link{lpp}}}
   \item{L}{
-linear network (object of class "linnet")
+linear network (object of class "linnet"). No need to be given if X is an object of \code{\link{lpp}}
 }
   \item{T}{
 time vector

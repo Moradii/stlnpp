@@ -58,10 +58,17 @@ as.data.frame.sumstlpp <- function(x,...){
 
 #' @export
 stlpp <- function(X,L,T,...){
-  stopifnot(inherits(L, "linnet"))
-  if(missing(L)) stop("L is not introduced")
+
+    if(missing(L) & !any(class(X)=="lpp")) stop("L is not introduced")
   
-  Y <- lpp(X,L,...)
+  if(!any(class(X)=="lpp")){
+    stopifnot(inherits(L, "linnet"))
+    Y <- lpp(X,L,...)
+    }
+  else{
+    Y <- X
+    L <- domain(X)
+    }
   d <- cbind(as.data.frame(Y),t=T)
   
   out <- ppx(data=d[,c(1,2,5)],domain = L,coord.type = c("s","s","t"))
