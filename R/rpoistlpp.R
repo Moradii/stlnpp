@@ -1,10 +1,7 @@
 #' @export
 rpoistlpp <-  function(lambda,a,b,L,check=FALSE,lmax=NULL,nsim=1){
   
-  if (!inherits(L,"linnet"))   stop("L should be a linear network")
-  
-  if (a >= b)  stop("lower bound must be smaller than upper bound")
-  
+    
   if (!is.numeric(lambda) & !is.function(lambda) & !any(class(lambda)=="stlppint"))
     stop(" lambda should be a number, a function, or an object of class stlppint")
   
@@ -18,12 +15,22 @@ rpoistlpp <-  function(lambda,a,b,L,check=FALSE,lmax=NULL,nsim=1){
   
   if (is.numeric(lambda)){
     
+    if (!inherits(L,"linnet"))   stop("L should be a linear network")
+    
+    if (a >= b)  stop("lower bound must be smaller than upper bound")
+    
+    
     n <- rpois(1,lambda*volume(L)*(b-a))
     X <- runiflpp(n,L)
     t <- runif(npoints(X),a,b)
     stlpp <- data.frame(x=X$data$x,y=X$data$y,t)
   }
   else if(is.function(lambda)){
+    
+    if (!inherits(L,"linnet"))   stop("L should be a linear network")
+    
+    if (a >= b)  stop("lower bound must be smaller than upper bound")
+    
     
     if(is.null(lmax)){
       Llines <- as.psp(L)

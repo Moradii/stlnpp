@@ -38,7 +38,7 @@ if(separable){
 Y <- rthin(X,P=f,nsim = nrep)
   
 out.nonsep <- lapply(X=1:nrep, function(i){
-                     densityVoronoi.stlpp(Y[[i]],f=1,nrep = 1, separable = TRUE,dimt=dimt,...)
+                     densityVoronoi(Y[[i]],f=1,nrep = 1, separable = TRUE,dimt=dimt,...)
                    })
 tgrid <- attr(out.nonsep[[1]],"tgrid")
   

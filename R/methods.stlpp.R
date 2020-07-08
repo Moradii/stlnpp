@@ -73,7 +73,7 @@ stlpp <- function(X,L,T,...){
   
   out <- ppx(data=d[,c(1,2,5)],domain = L,coord.type = c("s","s","t"))
   class(out) <- c("stlpp","ppx")
-  out$time <- round(range(T),4)
+  out$time <- c(floor(min(T)),ceiling(max(T)))
   return(out)
   
 }

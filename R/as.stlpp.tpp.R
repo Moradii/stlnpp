@@ -14,11 +14,12 @@ tpp <- function(X,a,b){
 
 #' @export
 as.tpp.stlpp <- function(X){
-  if(!any(class(X)=="stlpp")) stop("class(X) must be stlpp")
-  out <- ppx(data=X$data$t,coord.type = c("t"))
-  names(out$data) <- "t"
-  class(out) <- c("tpp","ppx")
-  out$time <- X$time
+  if(!any(class(X)=="stlpp")) stop("X must be of class stlpp")
+  out <- tpp(X$data$t)
+  # out <- ppx(data=X$data$t,coord.type = c("t"))
+  # names(out$data) <- "t"
+  # class(out) <- c("tpp","ppx")
+  # out$time <- X$time
   return(out)
 }
 
@@ -85,7 +86,7 @@ print.tppint <- function(x,...){
 }
 
 #' @export
-plot.tppint <- function(x,xlab=xlab,xlim=xlim,line=2.5,...){
+plot.tppint <- function(x,xlab=xlab,xlim=xlim,line=2.5,main=NULL,...){
   if (inherits(x, "tppint") == FALSE) stop(" x must be from class tppint")
   t <- attr(x,"time")
   
@@ -106,7 +107,7 @@ plot.tppint <- function(x,xlab=xlab,xlim=xlim,line=2.5,...){
   if (missing(xlab)) xlab <- "time"
   
   plot(tgrid[OK],as.numeric(int)[OK],
-       ylab="",main="",type="l",ylim = c(0,max(int,table(round(t)))),xlab=xlab,xlim = xlim,...)
+       ylab="",main=main,type="l",ylim = c(0,max(int,table(round(t)))),xlab=xlab,xlim = xlim,...)
   points(table(round(t)))
   title(ylab=expression(hat(lambda)[time]), line=line,cex=3,...)
 }
