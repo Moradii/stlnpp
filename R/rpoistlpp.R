@@ -8,7 +8,7 @@ rpoistlpp <-  function(lambda,a,b,L,check=FALSE,lmax=NULL,nsim=1){
   if(nsim > 1) {
     out <- list()
     for (i in 1:nsim) {
-      out[[i]] <- rpoislpp(lambda,a=a,b=b,L=L,nsim=1)
+      out[[i]] <- rpoistlpp(lambda,a=a,b=b,L=L,nsim=1,check=check,lmax=lmax)
     }
     return(out)
   }

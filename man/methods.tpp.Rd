@@ -14,7 +14,7 @@ Methods for temporal point patterns.
 }
 \usage{
 \method{plot}{tpp}(x,xlab="time",ylab="",main = "cumulative number",...)
-\method{plot}{tppint}(x,xlab=xlab,xlim=xlim,line=2.5,...)
+\method{plot}{tppint}(x,xlab=xlab,xlim=xlim,line=2.5,main="NULL",...)
 \method{print}{tpp}(x,...)
 \method{print}{tppint}(x,...)
 \method{[}{tpp}(x,i)
