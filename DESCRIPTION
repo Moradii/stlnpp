@@ -1,10 +1,8 @@
-Package: stlnpp
 Type: Package
+Package: stlnpp
+Version: 0.3.6
 Title: Spatio-Temporal Analysis of Point Patterns on Linear Networks
-Version: 0.3.5-7
-Authors@R: 
-  c(person("Mehdi", "Moradi", email = "m2.moradi@yahoo.com",
-  role = c("aut", "cre")),
+Authors@R: c(person("Mehdi", "Moradi", role = c("aut", "cre"), email = "m2.moradi@yahoo.com", comment = c(ORCID = "0000-0003-3905-4498")),
   person("Ottmar", "Cronie", role = "ctb"),
   person("Jorge", "Mateu", role = "ctb"))
 Maintainer: Mehdi Moradi <m2.moradi@yahoo.com>
