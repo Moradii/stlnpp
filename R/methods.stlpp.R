@@ -28,7 +28,8 @@
     id[which(id==0)] <- 1
     out <- c()
     for (i in 1:n){
-      out[i] <- x[[(id[i])]][is[i]]
+      p <- is[i]
+      out[i] <- as.im(x[[(id[i])]])[p]
     }
     return(out)
   }
