@@ -7,8 +7,8 @@ Authors@R: c(person("Mehdi", "Moradi", role = c("aut", "cre"), email = "m2.morad
   person("Jorge", "Mateu", role = "ctb"))
 Maintainer: Mehdi Moradi <m2.moradi@yahoo.com>
 Description: Statistical analysis of spatio-temporal point processes on linear networks. This packages provides tools to visualise and analyse spatio-temporal point patterns on linear networks using first- and second-order summary statistics.
-Depends: R (>= 3.3.0), spatstat(>= 1.61-0)
-Imports: stats, graphics
+Depends: R (>= 3.3.0), spatstat (>= 2.0-0)
+Imports: spatstat.geom, spatstat.core, spatstat.linnet, stats, graphics
 Suggests: plot3D, lattice
 License: GPL (>= 2)
 Encoding: UTF-8
