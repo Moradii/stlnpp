@@ -10,6 +10,7 @@
 \alias{[.stlppint}
 \alias{as.linim.stlppint}
 \alias{as.tppint.stlppint}
+\alias{as.data.frame.sumstlpp}
 
 
 
@@ -31,6 +32,7 @@ facets = FALSE, ticktype = "detailed", resfac = 5,xlab="r = distance",ylab="t = 
 \method{[}{stlppint}(x,i)
 \method{as.linim}{stlppint}(X,...)
 \method{as.tppint}{stlppint}(x)
+\method{as.data.frame}{sumstlpp}(x,...)
 }
 \arguments{
 \item{x,X}{an object of classes \code{\link{stlpp}}, stlppint or sumstlpp
