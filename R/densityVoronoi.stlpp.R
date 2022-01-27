@@ -1,7 +1,8 @@
 #' @import spatstat
 #' @import spatstat.geom
 #' @import spatstat.linnet
-#' @import spatstat.core
+#' @importFrom spatstat.random rthin runifpointOnLines
+#' @rawNamespace import("spatstat.core", except=c("rthin", "runifpointOnLines"))
 #' @import stats
 #' @export
 densityVoronoi.stlpp <- function(X, f = 1, nrep = 1,
