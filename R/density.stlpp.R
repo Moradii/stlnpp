@@ -1,7 +1,6 @@
 #' @import spatstat
 #' @import spatstat.geom
 #' @import spatstat.linnet
-#' @import spatstat.core
 #' @import stats
 #' @export
 density.stlpp <- function(x,lbw,tbw,at=c("points","pixels"),dimt=512,...){
