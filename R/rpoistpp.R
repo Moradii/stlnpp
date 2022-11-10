@@ -2,7 +2,8 @@
 rpoistpp <- function(lambda,a=NULL,b=NULL,check=FALSE,lmax=NULL,nsim=1){
   
   
-  if (!is.numeric(lambda) & !is.function(lambda) & !class(lambda)=="tppint")
+  # if (!is.numeric(lambda) & !is.function(lambda) & !class(lambda)=="tppint")
+    if (!inherits(lambda,"numeric") & !inherits(lambda,"function") & !inherits(lambda,"tppint"))
     stop(" lambda should be a number or a function")
   
   if(nsim > 1) {
@@ -13,7 +14,7 @@ rpoistpp <- function(lambda,a=NULL,b=NULL,check=FALSE,lmax=NULL,nsim=1){
     return(out)
   }
   
-  if (class(lambda)=="numeric"){
+  if (inherits(lambda,"numeric")){
     
     if (a >= b)  stop("lower bound must be smaller than upper bound")
     
@@ -21,7 +22,7 @@ rpoistpp <- function(lambda,a=NULL,b=NULL,check=FALSE,lmax=NULL,nsim=1){
     t <- runif(n,a,b)
     out <- tpp(t,a=a,b=b)
   }
-  else if(is.function(lambda)){
+  else if(inherits(lambda,"function")){
     
     if (a >= b)  stop("lower bound must be smaller than upper bound")
     
@@ -52,7 +53,7 @@ rpoistpp <- function(lambda,a=NULL,b=NULL,check=FALSE,lmax=NULL,nsim=1){
     t <- t[retain]
     out <- tpp(t,a=a,b=b)
     
-  }else if(any(class(lambda)=="tppint")){
+  }else if(inherits(lambda,"tppint")){
     
     lmax <- max(lambda)
        
