@@ -1,10 +1,32 @@
-citHeader("To cite stlnpp in publications, please use:")
-
-citEntry(entry = "manual",
-  author = "Mehdi Moradi, Ottmar Cronie, and Jorge Mateu",
-  title = "stlnpp: Spatio-temporal analysis of point patterns on linear networks",
-  publisher = "",
-  year = "2020",
-  url = "",
-  textVersion = "M. Moradi, O. Cronie, and J. Mateu. (2020) stlnpp: Spatio-temporal analysis of point patterns on linear networks."
+c(
+  bibentry(bibtype   = "Manual",
+           title     = "stlnpp: Spatio-temporal analysis of point patterns on linear networks",
+           author    = c(person("Mehdi", "Moradi"),
+                         person("Ottmar", "Cronie"),
+                         person("Jorge", "Mateu")),
+           year      = "2024",
+           header    = "To cite stlnpp in publications, please use:"
+  ),
+  bibentry(bibtype = "Article",
+           title    = "First-and second-order characteristics of spatio-temporal point processes on linear networks",
+           author   = c(person("Mehdi", "Moradi"),
+                        person("Jorge", "Mateu")),
+           journal  = "Journal of Computational and Graphical Statistics",
+           year     = "2020",
+           volume   = "29",
+           number   = "3",
+           pages    = "432--443",
+           header   = "If you use kernel intensity estimation or second-order analysis, please also cite:"
+  ),
+  bibentry(bibtype  = "Article",
+           title    = "Spatio-temporal point patterns on linear networks: Pseudo-separable intensity estimation",
+           author   = c(person("Jorge", "Mateu"),
+                        person("Mehdi", "Moradi"),
+                        person("Ottmar", "Cronie")),
+           journal  = "Spatial Statistics",
+           year     = "2020",
+           number   = "6",
+           pages    = "100400",
+           header   = "If you use Voronoi intensity estimation, please also cite:"
+  )
 )
