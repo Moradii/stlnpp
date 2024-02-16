@@ -1,3 +1,36 @@
+#' Inhomogeneous K-function for spatio-temporal  point processes on linear networks
+#'
+#' This function computes the inhomogeneous K-function for spatio-temporal  point processes on linear networks.
+#'
+#' @usage STLKinhom(X,lambda=lambda,normalize=FALSE,r=NULL,t=NULL,nxy=10)
+#'
+#' @param X a spatio-temporal point pattern of class \code{\link{stlpp}}
+#' @param lambda values of estimated intensity at data points
+#' @param normalize normalization factor to be considered
+#' @param r values of argument r where pair correlation function will be evaluated. optional
+#' @param t values of argument t where pair correlation function will be evaluated. optional
+#' @param nxy pixel array dimensions. optional
+#' 
+#' @seealso \code{\link{STLg}}, \code{\link{STLK}}, \code{\link{STLginhom}}
+#' 
+#' @author Mehdi Moradi <m2.moradi@yahoo.com> 
+#' 
+#' @returns 
+#' An object of class \code{sumstlpp}.
+#'
+#' @details 
+#' This function calculates the inhomogeneous K-function for a spatio-temporal point processes on a linear network.
+#' 
+#' @references Moradi, M., & Mateu, J. (2020). First-and second-order characteristics of spatio-temporal point processes on linear networks. Journal of Computational and Graphical Statistics, 29(3), 432-443.
+#' 
+#' 
+#' @examples
+#' X <- rpoistlpp(.2,a=0,b=5,L=easynet)
+#' lambda <- density(X,at="points")
+#' k <- STLKinhom(X,lambda=lambda,normalize=TRUE)
+#' plot(k)
+#' 
+#' 
 #' @export
 STLKinhom <- function(X,lambda=lambda,normalize=FALSE,r=NULL,t=NULL,nxy=10){
 

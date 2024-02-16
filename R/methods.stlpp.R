@@ -68,28 +68,6 @@ as.data.frame.sumstlpp <- function(x,...){
 }
 
 #' @export
-stlpp <- function(X,L,T,...){
-
-    if(missing(L) & !any(class(X)=="lpp")) stop("L is not introduced")
-  
-  if(!any(class(X)=="lpp")){
-    stopifnot(inherits(L, "linnet"))
-    Y <- lpp(X,L,...)
-    }
-  else{
-    Y <- X
-    L <- domain(X)
-    }
-  d <- cbind(as.data.frame(Y),t=T)
-  
-  out <- ppx(data=d[,c(1,2,5)],domain = L,coord.type = c("s","s","t"))
-  class(out) <- c("stlpp","ppx")
-  out$time <- c(floor(min(T)),ceiling(max(T)))
-  return(out)
-  
-}
-
-#' @export
 as.linim.stlppint <- function(X,...){
   if (inherits(X, "stlppint") == FALSE) stop(" X must be from class stlppint")
   if(!is.null(attr(X,"tgrid"))){

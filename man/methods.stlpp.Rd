@@ -22,7 +22,7 @@ Methods for space-time point patterns on a linear network.
 }
 \usage{
 \method{plot}{stlpp}(x,xlab = xlab,...)
-\method{plot}{stlppint}(x,style=style,xlab=xlab,xlim=xlim,...)
+\method{plot}{stlppint}(x,style=style,xlab=xlab,xlim=xlim,ylim=ylim,bar=TRUE,...)
 \method{plot}{sumstlpp}(x,style=c("level","contour","perspective"), theta = 35, phi = 10,
 facets = FALSE, ticktype = "detailed", resfac = 5,xlab="r = distance",ylab="t = time",...)
 \method{print}{stlpp}(x,...)
@@ -54,6 +54,12 @@ the x,y label of the plot
 }
 \item{xlim}{
 giving the x limits for the plot
+}
+\item{ylim}{
+giving the y limits for the plot
+}
+\item{bar}{
+if TRUE, bar plot of rounded time occurances will be added to the density plot
 }
 \item{i}{
 numeric, logical, or an object of class \code{\link{stlpp}}

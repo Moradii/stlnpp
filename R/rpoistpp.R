@@ -1,3 +1,34 @@
+#' Simulating temporal poisson point patterns
+#'
+#' This function simulates realisations of a temporal poisson point process.
+#'
+#' @usage rpoistpp(lambda,a,b,check=FALSE,lmax=NULL,nsim=1)
+#'
+#' @param lambda intensity of the point process. It can be either a number, a function of location and time, or an object of class \code{tppint}
+#' @param a lower bound of time period
+#' @param b upper bound of time period
+#' @param check logical value indicating whether to check that all the (x,y) points lie inside the specified time period.
+#' @param lmax upper bound for the values of \code{labmda}. This is optional
+#' @param nsim number of simulated patterns to generate
+#' 
+#' @seealso \code{\link{rpoistlpp}}
+#' 
+#' @author Mehdi Moradi <m2.moradi@yahoo.com> 
+#' 
+#' @returns 
+#' an object of class \code{\link{tpp}} if nsim=1, otherwise a list of objects of class \code{\link{tpp}}.
+#'
+#' @details 
+#' This function generates realisations of a temporal poisson point process based on a given intensity function lambda and lower/upper bounds a and b.
+#' 
+#' 
+#' @references Moradi, M., & Mateu, J. (2020). First-and second-order characteristics of spatio-temporal point processes on linear networks. Journal of Computational and Graphical Statistics, 29(3), 432-443.
+#' 
+#' 
+#' @examples  
+#' f <- function(t){0.1*exp(t)}
+#' X <- rpoistpp(f,a=1,b=10)
+#'
 #' @export
 rpoistpp <- function(lambda,a=NULL,b=NULL,check=FALSE,lmax=NULL,nsim=1){
   

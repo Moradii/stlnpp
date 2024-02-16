@@ -1,3 +1,32 @@
+#' Pair correlation function for spatio-temporal point processes on linear networks
+#'
+#' This function computes the pair correlation function for spatio-temporal point processes on linear networks.
+#'
+#' @usage STLg(X,r=NULL,t=NULL,nxy=10)
+#'
+#' @param X a spatio-temporal point pattern of class \code{\link{stlpp}}
+#' @param r values of argument r where pair correlation function will be evaluated. optional
+#' @param t values of argument t where pair correlation function will be evaluated. optional
+#' @param nxy pixel array dimensions. optional
+#' 
+#' @seealso \code{\link{pcf}}, \code{\link{STLK}}
+#' 
+#' @author Mehdi Moradi <m2.moradi@yahoo.com> 
+#' 
+#' @returns 
+#' An object of class \code{sumstlpp}.
+#'
+#' @details 
+#' This function calculates the pair correlation function for a homogeneous spatio-temporal point processes on a linear network.
+#' 
+#' @references Moradi, M., & Mateu, J. (2020). First-and second-order characteristics of spatio-temporal point processes on linear networks. Journal of Computational and Graphical Statistics, 29(3), 432-443.
+#' 
+#' 
+#' @examples
+#' X <- rpoistlpp(.2,a=0,b=5,L=easynet)
+#' g <- STLg(X)
+#' plot(g)
+#'
 #' @export
 STLg <- function(X,r=NULL,t=NULL,nxy=10){
 

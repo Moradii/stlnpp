@@ -1,29 +1,4 @@
 #' @export
-tpp <- function(X,a,b){
-  
-  stopifnot(inherits(X,"numeric") | inherits(X,"integer") | inherits(X,"vector"))
-  out <- ppx(data=X,coord.type = c("t"))
-  names(out$data) <- "t"
-  class(out) <- c("tpp","ppx")
-  if(missing(a)) a <- floor(min(X))
-  if(missing(b)) b <- ceiling(max(X))
-  out$time <- c(a,b)
-  return(out)
-  
-}
-
-#' @export
-as.tpp.stlpp <- function(X){
-  if(!any(class(X)=="stlpp")) stop("X must be of class stlpp")
-  out <- tpp(X$data$t)
-  # out <- ppx(data=X$data$t,coord.type = c("t"))
-  # names(out$data) <- "t"
-  # class(out) <- c("tpp","ppx")
-  # out$time <- X$time
-  return(out)
-}
-
-#' @export
 print.tpp <- function(x,...)
 {
   if(!any(class(x)=="tpp")) stop("class(X) must be tpp")
@@ -43,42 +18,6 @@ plot.tpp <- function(x,xlab="time",ylab="",main = "cumulative number",...){
        xlim=c(min(x1),max(x1)),...)
 }
 
-#' @export
-density.tpp <- function(x,tbw,at=c("points","pixels"),...){
-  
-  if (!inherits(x, "tpp")) stop("x should an object of class tpp")
-  
-  n <- npoints(x) # Emerge number of points
-  
-  if (missing(tbw)) {d <- density(x$data$t,...)}
-  else {
-    d <- density(x,bw=tbw,...)
-  }
-  
-  if(missing(at)) at <- "pixels"
-  
-  if(at=="points"){
-    Tint <- d$y[findInterval(x$data$t, d$x)] * npoints(x)
-  }
-  if(at=="pixels"){
-    Tint <- d$y * npoints(x)
-  }
-
-  out <- Tint
-  
-  attr(out,"tempden") <- d
-  attr(out,"bw") <- d$bw
-  attr(out,"time") <- x$data$t
-  attr(out,"tpp") <- x
-  attr(out,"tgrid") <- d$x
-  if(at=="points"){
-    class(out) <- c("numeric")  
-  }else{
-    class(out) <- c("tppint")
-  }
-  
-  return(out)
-}
 
 #' @export
 print.tppint <- function(x,...){

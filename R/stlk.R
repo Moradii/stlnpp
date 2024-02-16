@@ -1,3 +1,33 @@
+#' K-function for spatio-temporal point processes on linear networks
+#'
+#' This function computes the K-function for spatio-temporal point processes on linear networks.
+#'
+#' @usage STLK(X,r=NULL,t=NULL,nxy=10)
+#'
+#' @param X a spatio-temporal point pattern of class \code{\link{stlpp}}
+#' @param r values of argument r where pair correlation function will be evaluated. optional
+#' @param t values of argument t where pair correlation function will be evaluated. optional
+#' @param nxy pixel array dimensions. optional
+#' 
+#' @seealso \code{\link{Kest}}, \code{\link{STLg}}
+#' 
+#' @author Mehdi Moradi <m2.moradi@yahoo.com> 
+#' 
+#' @returns 
+#' An object of class \code{sumstlpp}.
+#'
+#' @details 
+#' This function calculates the K-function for a homogeneous spatio-temporal point processes on a linear network.
+#' 
+#' @references Moradi, M., & Mateu, J. (2020). First-and second-order characteristics of spatio-temporal point processes on linear networks. Journal of Computational and Graphical Statistics, 29(3), 432-443.
+#' 
+#' 
+#' @examples
+#' X <- rpoistlpp(.2,a=0,b=5,L=easynet)
+#' k <- STLK(X)
+#' plot(k)
+#' 
+#' 
 #' @export
 STLK <- function(X,r=NULL,t=NULL,nxy=10){
   if (!inherits(X, "stlpp")) stop("X should be from class stlpp")

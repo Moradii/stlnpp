@@ -19,7 +19,7 @@ plot.stlpp=function(x,xlab=xlab,...){
 }
 
 #' @export
-plot.stlppint <- function(x,style=style,xlab=xlab,xlim=xlim,...){
+plot.stlppint <- function(x,style=style,xlab=xlab,xlim=xlim,ylim=ylim,bar=TRUE,...){
   
   if (inherits(x, "stlppint") == FALSE) stop(" x must be from class stlppint")
   
@@ -37,11 +37,12 @@ plot.stlppint <- function(x,style=style,xlab=xlab,xlim=xlim,...){
     
     if (missing(xlim)) xlim <- range(tgrid)
     if (missing(xlab)) xlab <- "time"
-    
+    if (missing(ylim)) ylim = c(0,max(onT,table(round(t))))
+      
     plot(tgrid,onT,ylab="",main="",
-         type="l",ylim = c(0,max(onT,table(round(t)))),
+         type="l",ylim = ylim,
          xlab=xlab,xlim = xlim,...)
-    points(table(round(t)))
+    if(bar) points(table(round(t))) 
     title(ylab=expression(hat(lambda)[time]), line=2,cex=3,...)
     
     if (missing(style)) {plot(onL,main="",...)}
@@ -52,11 +53,12 @@ plot.stlppint <- function(x,style=style,xlab=xlab,xlim=xlim,...){
     int <- length(t)*d$y
     
     if (missing(xlim)) xlim <- range(d$x)
+    if (missing(ylim)) ylim = c(0,max(int,table(round(t))))
     OK <- d$x>=range(xlim)[1] & d$x<=range(xlim)[2]
     if (missing(xlab)) xlab <- "time"
     plot(d$x[OK],int[OK],
-         ylab="",main="",type="l",ylim = c(0,max(int,table(round(t)))),xlab=xlab,xlim = xlim,...)
-    points(table(round(t)))
+         ylab="",main="",type="l",ylim = ylim,xlab=xlab,xlim = xlim,...)
+    if(bar) points(table(round(t)))
     title(ylab=expression(hat(lambda)[time]), line=2,cex=3,...)
     
     if (missing(style)) {plot(attr(x,"netint"),main="",...)}
@@ -68,11 +70,12 @@ plot.stlppint <- function(x,style=style,xlab=xlab,xlim=xlim,...){
     
     if (missing(xlim)) xlim <- range(tgrid)
     if (missing(xlab)) xlab <- "time"
+    if (missing(ylim)) ylim = c(0,max(d,table(round(t))))
     
     plot(tgrid,d,ylab="",main="",
-         type="l",ylim = c(0,max(d,table(round(t)))),
+         type="l",ylim = ylim,
          xlab=xlab,xlim = xlim,...)
-    points(table(round(t)))
+    if(bar) points(table(round(t)))
     title(ylab=expression(hat(lambda)[time]), line=2,cex=3,...)
     
     if (missing(style)) {plot(attr(x,"lint"),main="",...)}

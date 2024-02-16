@@ -1,3 +1,35 @@
+#' Simulating spatio-temporal poisson point processes on a linear network
+#'
+#' This function simulates realisations of a spatio-temporal poisson point process on a linear network.
+#'
+#' @usage rpoistlpp(lambda,a,b,L,check=FALSE,lmax=NULL,nsim=1)
+#'
+#' @param lambda intensity of the point process. It can be either a number, function of location and time, or an abject of class \code{stlppint}
+#' @param a lower bound of time period
+#' @param b upper bound of time period
+#' @param L a linear network
+#' @param check logical value indicating whether to check that all the (x,y) points lie inside the specified window. see \code{\link{ppp}}
+#' @param lmax upper bound for the values of \code{labmda}. This is optional
+#' @param nsim number of simulated patterns to generate
+#' 
+#' @seealso \code{\link{density.stlpp}}
+#' 
+#' @author Mehdi Moradi <m2.moradi@yahoo.com> 
+#' 
+#' @returns 
+#' an object of class \code{\link{stlpp}} if nsim=1, otherwise a list of objects of class \code{\link{stlpp}}.
+#'
+#' @details 
+#' This function generates realisations of a spatio-temporal poisson point process on a linear network based on an intensity function lambda and lower/upper bounds a and b.
+#' 
+#' 
+#' @references Moradi, M., & Mateu, J. (2020). First-and second-order characteristics of spatio-temporal point processes on linear networks. Journal of Computational and Graphical Statistics, 29(3), 432-443.
+#' 
+#' 
+#' @examples  
+#' X <- rpoistlpp(0.2,a=0,b=5,L=easynet)
+#' X
+#' 
 #' @export
 rpoistlpp <-  function(lambda,a,b,L,check=FALSE,lmax=NULL,nsim=1){
   
