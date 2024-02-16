@@ -2,7 +2,7 @@
 % Please edit documentation in R/as.lpp.stlpp.R
 \name{as.lpp.stlpp}
 \alias{as.lpp.stlpp}
-\title{Methods for space-time point patterns on a linear network}
+\title{Methods for spatio-temporal point patterns on a linear network}
 \usage{
 \method{as.lpp}{stlpp}(x,...)
 }
@@ -15,10 +15,10 @@
 An object of class \code{\link{lpp}}.
 }
 \description{
-This function projects an object of class \code{\link{stlpp}} to a linear network.
+This function projects an object of class \code{\link{stlpp}} into a linear network.
 }
 \details{
-This function projects the space-time point pattern x on linear network L into L, giving its corresponding spatial point pattern.
+This function projects the spatio-temporal point pattern x on the linear network L into L, giving its corresponding spatial point pattern.
 }
 \examples{
  

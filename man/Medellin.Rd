@@ -18,7 +18,7 @@ This data is a part of enitre data which is selected and converted to this forma
 }
 
 \references{
-Moradi, M.M. and Mateu, J. (2019). First and second-order characteristics of spatio-temporal point processes on linear networks. Journal of Computational and Graphical Statistics. In press.
+Moradi, M., & Mateu, J. (2020). First-and second-order characteristics of spatio-temporal point processes on linear networks. Journal of Computational and Graphical Statistics, 29(3), 432-443.
 }
 \author{
 Mehdi Moradi <m2.moradi@yahoo.com>

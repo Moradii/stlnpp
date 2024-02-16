@@ -4,7 +4,7 @@
 #'
 #' @usage stlpp(X, L, T, ...)
 #'
-#' @param X Locations of the points. A matrix or data frame of coordinates, or a point pattern object (of class "ppp") or other data acceptable to \code{\link{as.ppp}} or \code{\link{lpp}}
+#' @param X Locations of the points. a matrix or data frame of coordinates, or a point pattern object (of class "ppp") or other data acceptable to \code{\link{as.ppp}} or \code{\link{lpp}}
 #' @param L linear network (object of class \code{\link{linnet}}) on which the points lie
 #' @param T time occurrence of the points
 #' @param ... ignored
@@ -16,7 +16,7 @@
 #' 
 #' @returns An object of class  \code{\link{stlpp}}.
 #' 
-#' @details This function creates an object of class \code{\link{stlpp}}. For details about X see \code{\link{lpp}}. T represents the time occurrence of data points.
+#' @details This function creates an object of class \code{\link{stlpp}}. For details about X see \code{\link{lpp}}. \code{T} represents the time occurrences of data points.
 #' 
 #' @examples  
 #' data(easynet)

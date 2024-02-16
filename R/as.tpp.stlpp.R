@@ -12,7 +12,7 @@
 #' 
 #' @returns An object of class tpp.
 #' 
-#' @details This function projects the spatio-temporal point pattern X into the time domain T.
+#' @details This function projects the spatio-temporal point pattern X into its corresponding time domain T.
 #' 
 #' @examples  
 #' X <- rpoistlpp(10,1,2,easynet)

@@ -1,13 +1,13 @@
-#' Convert data to a space-time point pattern on a linear network
+#' Convert data to a spatio-temporal point pattern on a linear network
 #'
-#' This function converts data to a space-time point pattern on a linear network.
+#' This function converts data to a spatio-temporal point pattern on a linear network.
 #'
 #' @usage as.stlpp(x,y,t,L)
 #'
 #' @param x,y,t vectors of Cartesian coordinates and time occurrence. Alternatively, x can be of classes \code{\link{data.frame}}, \code{\link{ppp}} and \code{\link{lpp}}
-#' @param L linear network (object of class \code{\link{linnet}}) on which the points lie
+#' @param L linear network (object of class \code{\link{linnet}})
 #' 
-#' @seealso \code{\link{as.lpp.stlpp}}, \code{\link{runifpointOnLines}}, \code{\link{as.lpp}}
+#' @seealso \code{\link{stlpp}}
 #' 
 #' @author Mehdi Moradi <m2.moradi@yahoo.com>
 #' 

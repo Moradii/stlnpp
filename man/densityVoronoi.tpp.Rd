@@ -29,6 +29,8 @@ This function performs adaptive intensity estimation for temporal point patterns
 }
 \details{
 This function computes intensity estimates for temporal point patterns using Voronoi-Dirichlet tessellation.
+
+IF f<1, then nrep independent sub-samples of X are obtained using the function \code{\link{rthin.stlpp}}. Then for each of the obtained sub-samples, we calculate the Voronoi estimate. The final estimation is the sum of all obtained estimated intensities divided by (f*nrep).
 }
 \examples{
  

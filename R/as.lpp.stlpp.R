@@ -1,6 +1,6 @@
-#' Methods for space-time point patterns on a linear network
+#' Methods for spatio-temporal point patterns on a linear network
 #'
-#' This function projects an object of class \code{\link{stlpp}} to a linear network.
+#' This function projects an object of class \code{\link{stlpp}} into a linear network.
 #'
 #' @usage \method{as.lpp}{stlpp}(x,...)
 #'
@@ -13,7 +13,7 @@
 #' 
 #' @returns An object of class \code{\link{lpp}}.
 #' 
-#' @details This function projects the space-time point pattern x on linear network L into L, giving its corresponding spatial point pattern.
+#' @details This function projects the spatio-temporal point pattern x on the linear network L into L, giving its corresponding spatial point pattern.
 #' 
 #' @examples  
 #' data(easynet)

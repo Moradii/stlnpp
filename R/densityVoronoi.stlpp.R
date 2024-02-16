@@ -19,14 +19,14 @@
 #' @returns 
 #' If \code{at="points"}: a vector of intensity values at the data points of X.
 #'
-#' If \code{at="pixels"}: a list of images on a linear network. Each image represents an estimated saptio-temporal intensity at a fixed time.
+#' If \code{at="pixels"}: a list of images on a linear network. Each image represents an estimated spatio-temporal intensity at a fixed time.
 #' 
 #' @details 
 #' This function computes intensity estimates for spatio-temporal point patterns on linear networks using Voronoi-Dirichlet tessellation. Both first-order separability and pseudo-separability assumptions are accommodated in the function.
 #'
-#' If separable=TRUE, the estimated intensities will be a product of the estimated intensities on the network and those on time. Each will be obtained using \code{\link{densityVoronoi.lpp}}. If f=1, the function calculates the estimations based on the original Voronoi intensity estimator.
+#' If separable=TRUE, the estimated intensities will be a product of the estimated intensities on the network and those on time. Estimated intensity of the spatial component will be obtained using \code{\link{densityVoronoi.lpp}}, whereas estimated intensities of the temporal component will be obtained via \code{\link{densityVoronoi.tpp}}. If f=1, the function calculates the estimations based on the original Voronoi intensity estimator.
 #'
-#' If separable=FALSE, the estimated intensities will be calculated based on a subsampling technique explained in Mateu et al. (2019). nrep subsamples will be obtained from X based on a given retention probability f, the function \code{\link{densityVoronoi.stlpp}}, considering separable=TRUE and f=1, will be applied to each obtained subsample, and finally, the estimated intensities will be the sum of all obtained estimated intensities from all subsamples divided by the (f * nrep).
+#' If separable=FALSE, the estimated intensities will be calculated based on a sub-sampling technique explained in Mateu et al. (2019). nrep sub-samples will be obtained from X based on a given retention probability f, the function \code{\link{densityVoronoi.stlpp}}, considering separable=TRUE and f=1, will be applied to each obtained sub-sample, and finally, the estimated intensities will be the sum of all obtained estimated intensities from all sub-samples divided by the (f * nrep).
 #' 
 #' @references Mateu, J., Moradi, M., & Cronie, O. (2019). Spatio-temporal point patterns on linear networks: Pseudo-separable intensity estimation. Spatial Statistics, 100400.
 #' 

@@ -1,6 +1,6 @@
 #' Inhomogeneous pair correlation function for spatio-temporal point processes on linear networks
 #'
-#' This function computes the inhomogeneous pair correlation function for spatio-temporal  point processes on linear networks.
+#' This function computes the inhomogeneous pair correlation function for spatio-temporal  point patterns on linear networks.
 #'
 #' @usage STLginhom(X,lambda,normalize=FALSE,r=NULL,t=NULL,nxy=10)
 #'
@@ -19,7 +19,7 @@
 #' An object of class \code{sumstlpp}.
 #'
 #' @details 
-#' This function calculates the inhomogeneous pair correlation function for a spatio-temporal point processes on a linear network.
+#' This function calculates the inhomogeneous pair correlation function for a spatio-temporal point patterns on a linear network.
 #' 
 #' @references Moradi, M., & Mateu, J. (2020). First-and second-order characteristics of spatio-temporal point processes on linear networks. Journal of Computational and Graphical Statistics, 29(3), 432-443.
 #' 

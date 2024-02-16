@@ -23,10 +23,10 @@ STLginhom(X,lambda,normalize=FALSE,r=NULL,t=NULL,nxy=10)
 An object of class \code{sumstlpp}.
 }
 \description{
-This function computes the inhomogeneous pair correlation function for spatio-temporal  point processes on linear networks.
+This function computes the inhomogeneous pair correlation function for spatio-temporal  point patterns on linear networks.
 }
 \details{
-This function calculates the inhomogeneous pair correlation function for a spatio-temporal point processes on a linear network.
+This function calculates the inhomogeneous pair correlation function for a spatio-temporal point patterns on a linear network.
 }
 \examples{
 X <- rpoistlpp(.2,a=0,b=5,L=easynet)

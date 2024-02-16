@@ -7,7 +7,7 @@
 #' @param x an object of class \code{\link{stlpp}}
 #' @param lbw network smoothing bandwidth
 #' @param tbw time smoothing bandwidth
-#' @param at string specifying whether to compute the intensity values at a grid of pixel locations and time (at="pixels") or only at the points of x (at="points"). default is to estimate the intensity at pixels
+#' @param at string specifying whether to compute the intensity values at a grid of pixel locations and times (at="pixels") or only at the points of x (at="points"). default is to estimate the intensity at pixels
 #' @param dimt the number of equally spaced points at which the temporal density is to be estimated. see \link[stats]{density}
 #' @param ... arguments passed to \code{\link{density.lpp}}
 #' 
@@ -17,10 +17,10 @@
 #' 
 #' @returns 
 #' If \code{at="points"}: a vector of intensity values at the data points of x.
-#' If \code{at="pixels"}: a list of images on linear network. Each image represents an estimated saptio-temporal intensity at a fixed time.
-#' check the attributes for more accommodated outputs.
+#' If \code{at="pixels"}: a list of images on linear network. Each image represents an estimated spatio-temporal intensity at a fixed time.
+#' Check the attributes for more accommodated outputs.
 #' 
-#' @details Kernel smoothing is applied to the spatio-temporal point pattern x using methods in Moradi et al (2019). The function computes estimated intensities based on first-order separability assumption. Estimated intensity values of the marginal spatial point pattern on the linear network will be obtained using the fast kernel smoothing technique of Rakshit et al. (2019) and function  \code{\link{densityQuick.lpp}}, and the estimated intensity values of the marginal temporal point pattern will be estimated suing the function \code{\link{density}}.
+#' @details Kernel smoothing is applied to the spatio-temporal point pattern x using methods in Moradi et al (2019). The function computes estimated intensities assuming first-order separability. Estimated intensity values of the marginal spatial point pattern on the linear network will be obtained using the fast kernel smoothing technique of Rakshit et al. (2019) and function  \code{\link{densityQuick.lpp}}, whereas the estimated intensity values of the marginal temporal point pattern will be estimated using the function \code{\link{density}}.
 #'
 #' If lbw and tbw are not given, then they will be selected using \code{\link{bw.nrd0}} and \code{\link{bw.scott.iso}} respectively.
 #' 

@@ -1,6 +1,6 @@
 #' Pair correlation function for spatio-temporal point processes on linear networks
 #'
-#' This function computes the pair correlation function for spatio-temporal point processes on linear networks.
+#' This function computes the pair correlation function for spatio-temporal point patterns on linear networks.
 #'
 #' @usage STLg(X,r=NULL,t=NULL,nxy=10)
 #'
@@ -17,7 +17,7 @@
 #' An object of class \code{sumstlpp}.
 #'
 #' @details 
-#' This function calculates the pair correlation function for a homogeneous spatio-temporal point processes on a linear network.
+#' This function calculates the pair correlation function for a homogeneous spatio-temporal point patterns on a linear network.
 #' 
 #' @references Moradi, M., & Mateu, J. (2020). First-and second-order characteristics of spatio-temporal point processes on linear networks. Journal of Computational and Graphical Statistics, 29(3), 432-443.
 #' 

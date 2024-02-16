@@ -7,7 +7,7 @@
 stlpp(X, L, T, ...)
 }
 \arguments{
-\item{X}{Locations of the points. A matrix or data frame of coordinates, or a point pattern object (of class "ppp") or other data acceptable to \code{\link{as.ppp}} or \code{\link{lpp}}}
+\item{X}{Locations of the points. a matrix or data frame of coordinates, or a point pattern object (of class "ppp") or other data acceptable to \code{\link{as.ppp}} or \code{\link{lpp}}}
 
 \item{L}{linear network (object of class \code{\link{linnet}}) on which the points lie}
 
@@ -22,7 +22,7 @@ An object of class  \code{\link{stlpp}}.
 Create an object of class \code{\link{stlpp}} representing a spatio-temporal point pattern on a linear network.
 }
 \details{
-This function creates an object of class \code{\link{stlpp}}. For details about X see \code{\link{lpp}}. T represents the time occurrence of data points.
+This function creates an object of class \code{\link{stlpp}}. For details about X see \code{\link{lpp}}. \code{T} represents the time occurrences of data points.
 }
 \examples{
  

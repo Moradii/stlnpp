@@ -9,9 +9,9 @@ tpp(X,a,b)
 \arguments{
 \item{X}{an object of class \code{\link{numeric}}, \code{\link{integer}} or \code{\link{vector}}}
 
-\item{a}{lower band of the time domain. If not given by the user, it will be the minimum of X}
+\item{a}{lower band of the time domain. if not given by the user, it will be the minimum of X}
 
-\item{b}{upper bound of the time domain. If not given by the user, it will be the maximum of X}
+\item{b}{upper bound of the time domain. if not given by the user, it will be the maximum of X}
 }
 \value{
 An object of class tpp.

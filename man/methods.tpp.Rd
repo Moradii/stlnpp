@@ -7,10 +7,10 @@
 \alias{[.tpp}
 \alias{[.tppint}
 \title{
-Methods for temporal point patterns
+Methods for one-dimensional point patterns
 }
 \description{
-Methods for temporal point patterns.
+Methods for one-dimensional point patterns.
 }
 \usage{
 \method{plot}{tpp}(x,xlab="time",ylab="",main = "cumulative number",...)

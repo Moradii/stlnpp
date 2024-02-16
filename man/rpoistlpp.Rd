@@ -2,12 +2,12 @@
 % Please edit documentation in R/rpoistlpp.R
 \name{rpoistlpp}
 \alias{rpoistlpp}
-\title{Simulating spatio-temporal poisson point processes on a linear network}
+\title{Simulating spatio-temporal Poisson point processes on a linear network}
 \usage{
 rpoistlpp(lambda,a,b,L,check=FALSE,lmax=NULL,nsim=1)
 }
 \arguments{
-\item{lambda}{intensity of the point process. It can be either a number, function of location and time, or an abject of class \code{stlppint}}
+\item{lambda}{intensity of the point process. it can be either a number, function of location and time, or an abject of class \code{stlppint}}
 
 \item{a}{lower bound of time period}
 
@@ -17,7 +17,7 @@ rpoistlpp(lambda,a,b,L,check=FALSE,lmax=NULL,nsim=1)
 
 \item{check}{logical value indicating whether to check that all the (x,y) points lie inside the specified window. see \code{\link{ppp}}}
 
-\item{lmax}{upper bound for the values of \code{labmda}. This is optional}
+\item{lmax}{upper bound for the values of \code{labmda}. this is optional}
 
 \item{nsim}{number of simulated patterns to generate}
 }
@@ -25,7 +25,7 @@ rpoistlpp(lambda,a,b,L,check=FALSE,lmax=NULL,nsim=1)
 an object of class \code{\link{stlpp}} if nsim=1, otherwise a list of objects of class \code{\link{stlpp}}.
 }
 \description{
-This function simulates realisations of a spatio-temporal poisson point process on a linear network.
+This function simulates realisations of a spatio-temporal Poisson point process on a linear network.
 }
 \details{
 This function generates realisations of a spatio-temporal poisson point process on a linear network based on an intensity function lambda and lower/upper bounds a and b.

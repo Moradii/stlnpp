@@ -2,7 +2,7 @@
 % Please edit documentation in R/density.tpp.R
 \name{density.tpp}
 \alias{density.tpp}
-\title{Kernel estimation of intensity of temporal point patterns}
+\title{Kernel estimation of intensity of one-dimensional point patterns}
 \usage{
 \method{density}{tpp}(x,tbw,at=c("points","pixels"),...)
 }
@@ -16,12 +16,12 @@
 \item{...}{arguments passed to \link[stats]{density}}
 }
 \value{
-If \code{at="points"}: a vector of intensity values at the data points of X.
+If \code{at="points"}: a vector of intensity values at the data points of x.
 
 If \code{at="pixels"}: a vector of intensity values over a grid.
 }
 \description{
-Kernel estimation of intensity of temporal point patterns.
+Kernel estimation of intensity of one-dimensional point patterns.
 }
 \details{
 A vector of intensity values.

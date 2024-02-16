@@ -1,14 +1,14 @@
-#' Simulating temporal poisson point patterns
+#' Simulating one-dimensional Poisson point patterns
 #'
-#' This function simulates realisations of a temporal poisson point process.
+#' This function simulates realisations of an one-dimensional Poisson point process.
 #'
 #' @usage rpoistpp(lambda,a,b,check=FALSE,lmax=NULL,nsim=1)
 #'
-#' @param lambda intensity of the point process. It can be either a number, a function of location and time, or an object of class \code{tppint}
+#' @param lambda intensity of the point process. it can be either a number, a function of location and time, or an object of class \code{tppint}
 #' @param a lower bound of time period
 #' @param b upper bound of time period
 #' @param check logical value indicating whether to check that all the (x,y) points lie inside the specified time period.
-#' @param lmax upper bound for the values of \code{labmda}. This is optional
+#' @param lmax upper bound for the values of \code{labmda}. this is optional
 #' @param nsim number of simulated patterns to generate
 #' 
 #' @seealso \code{\link{rpoistlpp}}

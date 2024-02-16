@@ -5,8 +5,8 @@
 #' @usage tpp(X,a,b)
 #'
 #' @param X an object of class \code{\link{numeric}}, \code{\link{integer}} or \code{\link{vector}}
-#' @param a lower band of the time domain. If not given by the user, it will be the minimum of X
-#' @param b upper bound of the time domain. If not given by the user, it will be the maximum of X
+#' @param a lower band of the time domain. if not given by the user, it will be the minimum of X
+#' @param b upper bound of the time domain. if not given by the user, it will be the maximum of X
 #' 
 #' @seealso \code{\link{stlpp}}
 #' 

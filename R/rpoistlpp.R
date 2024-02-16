@@ -1,15 +1,15 @@
-#' Simulating spatio-temporal poisson point processes on a linear network
+#' Simulating spatio-temporal Poisson point processes on a linear network
 #'
-#' This function simulates realisations of a spatio-temporal poisson point process on a linear network.
+#' This function simulates realisations of a spatio-temporal Poisson point process on a linear network.
 #'
 #' @usage rpoistlpp(lambda,a,b,L,check=FALSE,lmax=NULL,nsim=1)
 #'
-#' @param lambda intensity of the point process. It can be either a number, function of location and time, or an abject of class \code{stlppint}
+#' @param lambda intensity of the point process. it can be either a number, function of location and time, or an abject of class \code{stlppint}
 #' @param a lower bound of time period
 #' @param b upper bound of time period
 #' @param L a linear network
 #' @param check logical value indicating whether to check that all the (x,y) points lie inside the specified window. see \code{\link{ppp}}
-#' @param lmax upper bound for the values of \code{labmda}. This is optional
+#' @param lmax upper bound for the values of \code{labmda}. this is optional
 #' @param nsim number of simulated patterns to generate
 #' 
 #' @seealso \code{\link{density.stlpp}}

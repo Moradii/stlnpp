@@ -23,6 +23,8 @@
 #' @details 
 #' This function computes intensity estimates for temporal point patterns using Voronoi-Dirichlet tessellation.
 #' 
+#' IF f<1, then nrep independent sub-samples of X are obtained using the function \code{\link{rthin.stlpp}}. Then for each of the obtained sub-samples, we calculate the Voronoi estimate. The final estimation is the sum of all obtained estimated intensities divided by (f*nrep). 
+#' 
 #' 
 #' @references Mateu, J., Moradi, M., & Cronie, O. (2019). Spatio-temporal point patterns on linear networks: Pseudo-separable intensity estimation. Spatial Statistics, 100400.
 #' 

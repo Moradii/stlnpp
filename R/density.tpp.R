@@ -1,6 +1,6 @@
-#' Kernel estimation of intensity of temporal point patterns
+#' Kernel estimation of intensity of one-dimensional point patterns
 #'
-#' Kernel estimation of intensity of temporal point patterns.
+#' Kernel estimation of intensity of one-dimensional point patterns.
 #'
 #' @usage \method{density}{tpp}(x,tbw,at=c("points","pixels"),...)
 #'
@@ -14,7 +14,7 @@
 #' @author Mehdi Moradi <m2.moradi@yahoo.com> and Ottmar Cronie
 #' 
 #' @returns 
-#' If \code{at="points"}: a vector of intensity values at the data points of X.
+#' If \code{at="points"}: a vector of intensity values at the data points of x.
 #'
 #' If \code{at="pixels"}: a vector of intensity values over a grid.
 #'

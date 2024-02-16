@@ -2,12 +2,12 @@
 % Please edit documentation in R/rpoistpp.R
 \name{rpoistpp}
 \alias{rpoistpp}
-\title{Simulating temporal poisson point patterns}
+\title{Simulating one-dimensional Poisson point patterns}
 \usage{
 rpoistpp(lambda,a,b,check=FALSE,lmax=NULL,nsim=1)
 }
 \arguments{
-\item{lambda}{intensity of the point process. It can be either a number, a function of location and time, or an object of class \code{tppint}}
+\item{lambda}{intensity of the point process. it can be either a number, a function of location and time, or an object of class \code{tppint}}
 
 \item{a}{lower bound of time period}
 
@@ -15,7 +15,7 @@ rpoistpp(lambda,a,b,check=FALSE,lmax=NULL,nsim=1)
 
 \item{check}{logical value indicating whether to check that all the (x,y) points lie inside the specified time period.}
 
-\item{lmax}{upper bound for the values of \code{labmda}. This is optional}
+\item{lmax}{upper bound for the values of \code{labmda}. this is optional}
 
 \item{nsim}{number of simulated patterns to generate}
 }
@@ -23,7 +23,7 @@ rpoistpp(lambda,a,b,check=FALSE,lmax=NULL,nsim=1)
 an object of class \code{\link{tpp}} if nsim=1, otherwise a list of objects of class \code{\link{tpp}}.
 }
 \description{
-This function simulates realisations of a temporal poisson point process.
+This function simulates realisations of an one-dimensional Poisson point process.
 }
 \details{
 This function generates realisations of a temporal poisson point process based on a given intensity function lambda and lower/upper bounds a and b.

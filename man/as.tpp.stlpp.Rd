@@ -16,7 +16,7 @@ An object of class tpp.
 This function converts an object of class \code{\link{stlpp}} to  class \code{\link{tpp}}.
 }
 \details{
-This function projects the spatio-temporal point pattern X into the time domain T.
+This function projects the spatio-temporal point pattern X into its corresponding time domain T.
 }
 \examples{
  

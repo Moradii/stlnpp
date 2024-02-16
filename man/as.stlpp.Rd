@@ -2,20 +2,20 @@
 % Please edit documentation in R/as.stlpp.R
 \name{as.stlpp}
 \alias{as.stlpp}
-\title{Convert data to a space-time point pattern on a linear network}
+\title{Convert data to a spatio-temporal point pattern on a linear network}
 \usage{
 as.stlpp(x,y,t,L)
 }
 \arguments{
 \item{x, y, t}{vectors of Cartesian coordinates and time occurrence. Alternatively, x can be of classes \code{\link{data.frame}}, \code{\link{ppp}} and \code{\link{lpp}}}
 
-\item{L}{linear network (object of class \code{\link{linnet}}) on which the points lie}
+\item{L}{linear network (object of class \code{\link{linnet}})}
 }
 \value{
 A spatio-temporal point pattern on a linear network. An object of class  \code{\link{stlpp}}.
 }
 \description{
-This function converts data to a space-time point pattern on a linear network.
+This function converts data to a spatio-temporal point pattern on a linear network.
 }
 \details{
 This function converts data to an object of class stlpp.
@@ -43,7 +43,7 @@ W <- as.stlpp(Z,t=t2)
 
 }
 \seealso{
-\code{\link{as.lpp.stlpp}}, \code{\link{runifpointOnLines}}, \code{\link{as.lpp}}
+\code{\link{stlpp}}
 }
 \author{
 Mehdi Moradi <m2.moradi@yahoo.com>
