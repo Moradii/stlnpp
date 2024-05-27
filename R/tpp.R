@@ -25,6 +25,7 @@
 #' @import spatstat
 #' @import spatstat.geom
 #' @import spatstat.linnet
+#' @importFrom spatstat.univar dkernel
 #' @import stats
 #' @export
 tpp <- function(X,a,b){
