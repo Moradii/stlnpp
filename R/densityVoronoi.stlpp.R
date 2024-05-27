@@ -40,7 +40,7 @@
 #' @import spatstat.geom
 #' @import spatstat.linnet
 #' @importFrom spatstat.random rthin runifpointOnLines
-#' @import spatstat.explore
+#' @importFrom spatstat.explore densityVoronoi bw.scott.iso
 #' @import stats
 #' @export
 densityVoronoi.stlpp <- function(X, f = 1, nrep = 1,
