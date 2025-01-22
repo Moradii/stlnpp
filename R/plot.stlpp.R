@@ -1,22 +1,76 @@
 #' @import graphics
 #' @export
-plot.stlpp=function(x,xlab=xlab,...){
+plot.stlpp=function(x, xlab=xlab, onlypoints=FALSE, onlytime=FALSE, ...){
 
   if (inherits(x, "stlpp") == FALSE) stop("x should be an object of stlpp")
   oldpar <- par(no.readonly = TRUE)
   on.exit(par(oldpar)) 
   
-  par(mfrow = c(1, 2), pty = "s")
-  plot(as.lpp.stlpp(x), main = "xy-locations on linear network",...)
-  
-  xx = sort(as.data.frame(x$data[,3])[,1], index.return = TRUE)
-  x1 = x$data[xx$ix, ]
-  x1=as.data.frame(x1)
-  if (missing(xlab)) xlab <- "time"
-  plot(x1[, 3], cumsum(x1[, 3]), type = "l", xlab=xlab,
-       ylab = "", main = "cumulative number", las = 1
-       ,xlim=c(min(x1[,3]),max(x1[,3])),...)
+  if(onlypoints){
+    plot(as.lpp.stlpp(x), main = "xy-locations on linear network",...)
+  }else if(onlytime){
+    xx = sort(as.data.frame(x$data[,3])[,1], index.return = TRUE)
+    x1 = x$data[xx$ix, ]
+    x1=as.data.frame(x1)
+    if (missing(xlab)) xlab <- "time"
+    plot(x1[, 3], cumsum(x1[, 3]), type = "l", xlab=xlab,
+         ylab = "", main = "cumulative number", las = 1
+         ,xlim=c(min(x1[,3]),max(x1[,3])),...)
+  }else{
+    par(mfrow = c(1, 2), pty = "s")
+    plot(as.lpp.stlpp(x), main = "xy-locations on linear network",...)
+    xx = sort(as.data.frame(x$data[,3])[,1], index.return = TRUE)
+    x1 = x$data[xx$ix, ]
+    x1=as.data.frame(x1)
+    if (missing(xlab)) xlab <- "time"
+    plot(x1[, 3], cumsum(x1[, 3]), type = "l", xlab=xlab,
+         ylab = "", main = "cumulative number", las = 1
+         ,xlim=c(min(x1[,3]),max(x1[,3])),...)
+  }
 }
+
+#' @export
+plot.tpp=function(x, addline=TRUE, colline="black", xlab=xlab, onlypoints=FALSE, onlytime=FALSE,...){
+  
+  if (inherits(x, "tpp") == FALSE) stop("x should be an object of tpp")
+  oldpar <- par(no.readonly = TRUE)
+  on.exit(par(oldpar)) 
+  
+  t <- x$data$t
+  
+  if(onlypoints){
+    y_values <- rep(0, npoints(x))
+    plot(t, y_values, yaxt = "n", bty = "n",ylab="",...)
+    
+    if(addline){
+      abline(h = 0, col=colline)
+    } 
+  }else if(onlytime){
+    xx = sort(t, index.return = TRUE)
+    x1 = t[xx$ix]
+    if (missing(xlab)) xlab <- "time"
+    plot(x1, cumsum(x1), type = "l", xlab=xlab,
+         ylab = "", main = "cumulative number", las = 1
+         ,xlim=c(min(x1),max(x1)),...)
+  }
+  else{
+    par(mfrow = c(1, 2), pty = "s")
+    t <- x$data$t
+    y_values <- rep(0, npoints(x))
+    plot(t, y_values, yaxt = "n", bty = "n",ylab="",...)
+    
+    if(addline){
+      abline(h = 0, col=colline)
+    } 
+    xx = sort(t, index.return = TRUE)
+    x1 = t[xx$ix]
+    if (missing(xlab)) xlab <- "time"
+    plot(x1, cumsum(x1), type = "l", xlab=xlab,
+         ylab = "", main = "cumulative number", las = 1
+         ,xlim=c(min(x1),max(x1)),...)
+  }
+}
+
 
 #' @export
 plot.stlppint <- function(x,style=style,xlab=xlab,xlim=xlim,ylim=ylim,bar=TRUE,...){
