@@ -30,7 +30,7 @@ plot.stlpp=function(x, xlab=xlab, onlypoints=FALSE, onlytime=FALSE, ...){
 }
 
 #' @export
-plot.tpp=function(x, addline=TRUE, colline="black", xlab=xlab, onlypoints=FALSE, onlytime=FALSE,...){
+plot.tpp=function(x, onlypoints=FALSE, onlytime=FALSE, xlab=xlab,...){
   
   if (inherits(x, "tpp") == FALSE) stop("x should be an object of tpp")
   oldpar <- par(no.readonly = TRUE)
@@ -40,28 +40,19 @@ plot.tpp=function(x, addline=TRUE, colline="black", xlab=xlab, onlypoints=FALSE,
   
   if(onlypoints){
     y_values <- rep(0, npoints(x))
-    plot(t, y_values, yaxt = "n", bty = "n",ylab="",...)
+    plot(t, y_values, yaxt = "n", bty = "n", ...)
     
-    if(addline){
-      abline(h = 0, col=colline)
-    } 
   }else if(onlytime){
     xx = sort(t, index.return = TRUE)
-    x1 = t[xx$ix]
-    if (missing(xlab)) xlab <- "time"
-    plot(x1, cumsum(x1), type = "l", xlab=xlab,
-         ylab = "", main = "cumulative number", las = 1
-         ,xlim=c(min(x1),max(x1)),...)
+    t = t[xx$ix]
+    plot(t, cumsum(t), type = "l", las = 1,
+         xlim=c(min(t),max(t)), ...)
   }
   else{
     par(mfrow = c(1, 2), pty = "s")
-    t <- x$data$t
     y_values <- rep(0, npoints(x))
-    plot(t, y_values, yaxt = "n", bty = "n",ylab="",...)
+    plot(t, y_values, yaxt = "n", bty = "n", ylab="", ...)
     
-    if(addline){
-      abline(h = 0, col=colline)
-    } 
     xx = sort(t, index.return = TRUE)
     x1 = t[xx$ix]
     if (missing(xlab)) xlab <- "time"
