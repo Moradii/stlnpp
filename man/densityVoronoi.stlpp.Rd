@@ -19,7 +19,7 @@
 
 \item{dimt}{the number of equally spaced points at which the temporal density is to be estimated. see \link[stats]{density}}
 
-\item{...}{arguments passed to \code{\link{densityVoronoi.lpp}}}
+\item{...}{arguments passed to \code{\link[spatstat.linnet]{densityVoronoi.lpp}}}
 }
 \value{
 If \code{at="points"}: a vector of intensity values at the data points of X.
@@ -32,13 +32,13 @@ This function performs adaptive intensity estimation for spatio-temporal point p
 \details{
 This function computes intensity estimates for spatio-temporal point patterns on linear networks using Voronoi-Dirichlet tessellation. Both first-order separability and pseudo-separability assumptions are accommodated in the function.
 
-If separable=TRUE, the estimated intensities will be a product of the estimated intensities on the network and those on time. Estimated intensity of the spatial component will be obtained using \code{\link{densityVoronoi.lpp}}, whereas estimated intensities of the temporal component will be obtained via \code{\link{densityVoronoi.tpp}}. If f=1, the function calculates the estimations based on the original Voronoi intensity estimator.
+If separable=TRUE, the estimated intensities will be a product of the estimated intensities on the network and those on time. Estimated intensity of the spatial component will be obtained using \code{\link[spatstat.linnet]{densityVoronoi.lpp}}, whereas estimated intensities of the temporal component will be obtained via \code{\link{densityVoronoi.tpp}}. If f=1, the function calculates the estimations based on the original Voronoi intensity estimator.
 
 If separable=FALSE, the estimated intensities will be calculated based on a sub-sampling technique explained in Mateu et al. (2019). nrep sub-samples will be obtained from X based on a given retention probability f, the function \code{\link{densityVoronoi.stlpp}}, considering separable=TRUE and f=1, will be applied to each obtained sub-sample, and finally, the estimated intensities will be the sum of all obtained estimated intensities from all sub-samples divided by the (f * nrep).
 }
 \examples{
  
-X <- rpoistlpp(.2,a=0,b=5,L=easynet)
+X <- rpoistlpp(0.2,a=0,b=5,L=easynet)
 densityVoronoi(X)
 
 
@@ -47,7 +47,7 @@ densityVoronoi(X)
 Mateu, J., Moradi, M., & Cronie, O. (2019). Spatio-temporal point patterns on linear networks: Pseudo-separable intensity estimation. Spatial Statistics, 100400.
 }
 \seealso{
-\code{\link{densityVoronoi.lpp}}, \code{\link{density.stlpp}}
+\code{\link[spatstat.linnet]{densityVoronoi.lpp}}, \code{\link{density.stlpp}}
 }
 \author{
 Mehdi Moradi <m2.moradi@yahoo.com> and Ottmar Cronie

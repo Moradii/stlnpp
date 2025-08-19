@@ -2,15 +2,18 @@
 % Please edit documentation in R/as.tpp.stlpp.R
 \name{as.tpp.stlpp}
 \alias{as.tpp.stlpp}
+\alias{as.tpp}
 \title{Convert data to a one-dimensional point pattern}
 \usage{
-as.tpp.stlpp(X)
+\method{as.tpp}{stlpp}(X)
+
+as.tpp(X)
 }
 \arguments{
 \item{X}{an object of class \code{\link{stlpp}}}
 }
 \value{
-An object of class tpp.
+An object of class  \code{\link{tpp}}.
 }
 \description{
 This function converts an object of class \code{\link{stlpp}} to  class \code{\link{tpp}}.
@@ -21,11 +24,11 @@ This function projects the spatio-temporal point pattern X into its correspondin
 \examples{
  
 X <- rpoistlpp(10,1,2,easynet)
-as.tpp.stlpp(X)
+as.tpp(X)
 
 }
 \seealso{
-\code{\link{as.stlpp}}, \code{\link{lpp}}, \code{\link{as.lpp}}
+\code{\link{as.stlpp}}, \code{\link[spatstat.linnet]{lpp}}, \code{\link[spatstat.linnet]{as.lpp}}
 }
 \author{
 Mehdi Moradi <m2.moradi@yahoo.com>

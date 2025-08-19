@@ -8,7 +8,7 @@
 #' @param P retention probability
 #' @param nsim number of simulated realisations to be generated
 #' 
-#' @seealso \code{\link{stlpp}}, \code{\link{rthin}}
+#' @seealso \code{\link{stlpp}}, \code{\link[spatstat.random]{rthin}}
 #' 
 #' @author Mehdi Moradi <m2.moradi@yahoo.com> 
 #' 
@@ -16,7 +16,7 @@
 #' An object of the same kind as X if nsim=1, or a list of such objects if nsim > 1.
 #'
 #' @details 
-#' See \code{\link{rthin}}.
+#' See \code{\link[spatstat.random]{rthin}}.
 #' 
 #' @references Moradi, M., & Mateu, J. (2020). First-and second-order characteristics of spatio-temporal point processes on linear networks. Journal of Computational and Graphical Statistics, 29(3), 432-443.
 #' 

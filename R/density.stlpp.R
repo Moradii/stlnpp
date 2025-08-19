@@ -9,9 +9,9 @@
 #' @param tbw time smoothing bandwidth
 #' @param at string specifying whether to compute the intensity values at a grid of pixel locations and times (at="pixels") or only at the points of x (at="points"). default is to estimate the intensity at pixels
 #' @param dimt the number of equally spaced points at which the temporal density is to be estimated. see \link[stats]{density}
-#' @param ... arguments passed to \code{\link{density.lpp}}
+#' @param ... arguments passed to \code{\link[spatstat.linnet]{density.lpp}}
 #' 
-#' @seealso \code{\link{density}}, \code{\link{density.lpp}}, \code{\link{bw.nrd0}}, \code{\link{bw.scott.iso}}
+#' @seealso \code{\link{density}}, \code{\link[spatstat.linnet]{density.lpp}}, \code{\link{bw.nrd0}}, \code{\link[spatstat.explore]{bw.scott.iso}}
 #' 
 #' @author Mehdi Moradi <m2.moradi@yahoo.com>
 #' 
@@ -20,9 +20,9 @@
 #' If \code{at="pixels"}: a list of images on linear network. Each image represents an estimated spatio-temporal intensity at a fixed time.
 #' Check the attributes for more accommodated outputs.
 #' 
-#' @details Kernel smoothing is applied to the spatio-temporal point pattern x using methods in Moradi et al (2019). The function computes estimated intensities assuming first-order separability. Estimated intensity values of the marginal spatial point pattern on the linear network will be obtained using the fast kernel smoothing technique of Rakshit et al. (2019) and function  \code{\link{densityQuick.lpp}}, whereas the estimated intensity values of the marginal temporal point pattern will be estimated using the function \code{\link{density}}.
+#' @details Kernel smoothing is applied to the spatio-temporal point pattern x using methods in Moradi et al (2019). The function computes estimated intensities assuming first-order separability. Estimated intensity values of the marginal spatial point pattern on the linear network will be obtained using the fast kernel smoothing technique of Rakshit et al. (2019) and function  \code{\link[spatstat.linnet]{densityQuick.lpp}}, whereas the estimated intensity values of the marginal temporal point pattern will be estimated using the function \code{\link{density}}.
 #'
-#' If lbw and tbw are not given, then they will be selected using \code{\link{bw.nrd0}} and \code{\link{bw.scott.iso}} respectively.
+#' If lbw and tbw are not given, then they will be selected using \code{\link{bw.nrd0}} and \code{\link[spatstat.explore]{bw.scott.iso}} respectively.
 #' 
 #' @references Moradi, M., & Mateu, J. (2020). First-and second-order characteristics of spatio-temporal point processes on linear networks. Journal of Computational and Graphical Statistics, 29(3), 432-443.
 #' @examples  
@@ -34,7 +34,7 @@
 #' @import spatstat.linnet
 #' @import stats
 #' @export
-density.stlpp <- function(x,lbw,tbw,at=c("points","pixels"),dimt=512,...){
+density.stlpp <- function(x, lbw, tbw, at=c("points","pixels"), dimt=512, ...){
   
   if (!inherits(x, "stlpp")) stop("x should an object of class stlpp")
   
@@ -50,10 +50,10 @@ density.stlpp <- function(x,lbw,tbw,at=c("points","pixels"),dimt=512,...){
   stint <- 0 # define the vacant vector to save the densities values per points
   
   if (missing(tbw)) {
-    d <- density(ot,n=dimt)
+    d <- density(ot, n = dimt, from = x$time[1], to = x$time[2])
   }
   else{
-    d <- density(ot,bw=tbw,n=dimt)
+    d <- density(ot, bw = tbw, n = dimt, from = x$time[1], to = x$time[2])
   }
   
   if(at=="points"){
@@ -68,8 +68,8 @@ density.stlpp <- function(x,lbw,tbw,at=c("points","pixels"),dimt=512,...){
   if (missing(lbw)) lbw <- bw.scott.iso(pX)
   
   if(at=="points"){
-    ldens <- density.lpp(pX,sigma = lbw,distance="euclidean",...)
-    Sint <- density.lpp(pX,sigma = lbw,at="points",distance="euclidean",...)
+    ldens <- density.lpp(pX, sigma = lbw, distance="euclidean", ...)
+    Sint <- density.lpp(pX, sigma = lbw, at="points", distance="euclidean", ...)
     stint <-  Sint*Tint/npoints(pX)
     out <- stint
   }

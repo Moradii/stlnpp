@@ -10,9 +10,9 @@
 #' @param separable logical. If FALSE, it then calculates a pseudo-separable estimate
 #' @param at string specifying whether to compute the intensity values at a grid of pixel locations and time (at="pixels") or only at the points of x (at="points"). default is to estimate the intensity at pixels
 #' @param dimt the number of equally spaced points at which the temporal density is to be estimated. see \link[stats]{density}
-#' @param ... arguments passed to \code{\link{densityVoronoi.lpp}}
+#' @param ... arguments passed to \code{\link[spatstat.linnet]{densityVoronoi.lpp}}
 #' 
-#' @seealso \code{\link{densityVoronoi.lpp}}, \code{\link{density.stlpp}}
+#' @seealso \code{\link[spatstat.linnet]{densityVoronoi.lpp}}, \code{\link{density.stlpp}}
 #' 
 #' @author Mehdi Moradi <m2.moradi@yahoo.com> and Ottmar Cronie
 #' 
@@ -24,7 +24,7 @@
 #' @details 
 #' This function computes intensity estimates for spatio-temporal point patterns on linear networks using Voronoi-Dirichlet tessellation. Both first-order separability and pseudo-separability assumptions are accommodated in the function.
 #'
-#' If separable=TRUE, the estimated intensities will be a product of the estimated intensities on the network and those on time. Estimated intensity of the spatial component will be obtained using \code{\link{densityVoronoi.lpp}}, whereas estimated intensities of the temporal component will be obtained via \code{\link{densityVoronoi.tpp}}. If f=1, the function calculates the estimations based on the original Voronoi intensity estimator.
+#' If separable=TRUE, the estimated intensities will be a product of the estimated intensities on the network and those on time. Estimated intensity of the spatial component will be obtained using \code{\link[spatstat.linnet]{densityVoronoi.lpp}}, whereas estimated intensities of the temporal component will be obtained via \code{\link{densityVoronoi.tpp}}. If f=1, the function calculates the estimations based on the original Voronoi intensity estimator.
 #'
 #' If separable=FALSE, the estimated intensities will be calculated based on a sub-sampling technique explained in Mateu et al. (2019). nrep sub-samples will be obtained from X based on a given retention probability f, the function \code{\link{densityVoronoi.stlpp}}, considering separable=TRUE and f=1, will be applied to each obtained sub-sample, and finally, the estimated intensities will be the sum of all obtained estimated intensities from all sub-samples divided by the (f * nrep).
 #' 
@@ -32,20 +32,22 @@
 #' 
 #' 
 #' @examples  
-#' X <- rpoistlpp(.2,a=0,b=5,L=easynet)
+#' X <- rpoistlpp(0.2,a=0,b=5,L=easynet)
 #' densityVoronoi(X)
 #' 
 #' 
 #' @import spatstat
 #' @import spatstat.geom
 #' @import spatstat.linnet
-#' @importFrom spatstat.random rthin runifpointOnLines
-#' @importFrom spatstat.explore densityVoronoi bw.scott.iso
+#' @import spatstat.random 
 #' @import stats
+
 #' @export
 densityVoronoi.stlpp <- function(X, f = 1, nrep = 1,
-                                 separable=FALSE,at=c("points","pixels"),
-                                 dimt=128,...){
+                                 separable = FALSE,
+                                 at = c("points","pixels"),
+                                 dimt = 128,
+                                 ...){
   
   if(!inherits(X, "stlpp")) stop("X should an object of class stlpp")
   
@@ -64,8 +66,8 @@ densityVoronoi.stlpp <- function(X, f = 1, nrep = 1,
   
 if(separable){
     
-    IntEstL <- densityVoronoi(X=Xs,f=f,nrep=nrep,...)
-    IntEstT <- densityVoronoi(X=Xt,f=f,nrep=nrep,dimyx=dimt,...)
+    IntEstL <- densityVoronoi(X = Xs, f = f, nrep = nrep, ...)
+    IntEstT <- densityVoronoi(X = Xt, f = f, nrep = nrep, dimyx = dimt, ...)
     
     tgrid <- IntEstT$xcol
     
@@ -80,9 +82,9 @@ if(separable){
 Y <- rthin(X,P=f,nsim = nrep)
   
 out.nonsep <- lapply(X=1:nrep, function(i){
-                     densityVoronoi(Y[[i]],f=1,nrep = 1, separable = TRUE,dimt=dimt,...)
+                     densityVoronoi(Y[[i]], f = 1, nrep = 1, separable = TRUE, dimt = dimt, ...)
                    })
-tgrid <- attr(out.nonsep[[1]],"tgrid")
+tgrid <- attr(out.nonsep[[1]], "tgrid")
   
 out <- list()
 k <- length(out.nonsep[[1]])
@@ -121,8 +123,6 @@ if(at=="points"){
   attr(out,"stlpp") <- X
 return(out)
 }
-
-
 
 
 linnet_interval <- function(startp=0, endp=1,...){

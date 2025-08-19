@@ -17,7 +17,7 @@
 
 \item{dimt}{the number of equally spaced points at which the temporal density is to be estimated. see \link[stats]{density}}
 
-\item{...}{arguments passed to \code{\link{density.lpp}}}
+\item{...}{arguments passed to \code{\link[spatstat.linnet]{density.lpp}}}
 }
 \value{
 If \code{at="points"}: a vector of intensity values at the data points of x.
@@ -28,9 +28,9 @@ Check the attributes for more accommodated outputs.
 Kernel density estimation of a spatio-temporal point pattern on a linear network.
 }
 \details{
-Kernel smoothing is applied to the spatio-temporal point pattern x using methods in Moradi et al (2019). The function computes estimated intensities assuming first-order separability. Estimated intensity values of the marginal spatial point pattern on the linear network will be obtained using the fast kernel smoothing technique of Rakshit et al. (2019) and function  \code{\link{densityQuick.lpp}}, whereas the estimated intensity values of the marginal temporal point pattern will be estimated using the function \code{\link{density}}.
+Kernel smoothing is applied to the spatio-temporal point pattern x using methods in Moradi et al (2019). The function computes estimated intensities assuming first-order separability. Estimated intensity values of the marginal spatial point pattern on the linear network will be obtained using the fast kernel smoothing technique of Rakshit et al. (2019) and function  \code{\link[spatstat.linnet]{densityQuick.lpp}}, whereas the estimated intensity values of the marginal temporal point pattern will be estimated using the function \code{\link{density}}.
 
-If lbw and tbw are not given, then they will be selected using \code{\link{bw.nrd0}} and \code{\link{bw.scott.iso}} respectively.
+If lbw and tbw are not given, then they will be selected using \code{\link{bw.nrd0}} and \code{\link[spatstat.explore]{bw.scott.iso}} respectively.
 }
 \examples{
  
@@ -42,7 +42,7 @@ density(X)
 Moradi, M., & Mateu, J. (2020). First-and second-order characteristics of spatio-temporal point processes on linear networks. Journal of Computational and Graphical Statistics, 29(3), 432-443.
 }
 \seealso{
-\code{\link{density}}, \code{\link{density.lpp}}, \code{\link{bw.nrd0}}, \code{\link{bw.scott.iso}}
+\code{\link{density}}, \code{\link[spatstat.linnet]{density.lpp}}, \code{\link{bw.nrd0}}, \code{\link[spatstat.explore]{bw.scott.iso}}
 }
 \author{
 Mehdi Moradi <m2.moradi@yahoo.com>

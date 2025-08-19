@@ -9,28 +9,28 @@
 \arguments{
 \item{x}{an object of class \code{\link{stlpp}}}
 
-\item{...}{arguments passed to \code{\link{as.lpp}}}
+\item{...}{arguments passed to \code{\link[spatstat.linnet]{as.lpp}}}
 }
 \value{
-An object of class \code{\link{lpp}}.
+An object of class \code{\link[spatstat.linnet]{lpp}}.
 }
 \description{
 This function projects an object of class \code{\link{stlpp}} into a linear network.
 }
 \details{
-This function projects the spatio-temporal point pattern x on the linear network L into L, giving its corresponding spatial point pattern.
+This function projects the spatio-temporal point pattern x into its corresponding linear network L which is the corresponding spatial point pattern of x
 }
 \examples{
  
 data(easynet)
 x <- runifpointOnLines(40, easynet)
-t1 <- sample(1:10,40,replace=TRUE)
-Y <- as.stlpp(x,t=t1,L=easynet)
+t1 <- sample(1:10, 40, replace = TRUE)
+Y <- as.stlpp(x, t = t1, L = easynet)
 as.lpp.stlpp(Y)
 
 }
 \seealso{
-\code{\link{as.stlpp}}, \code{\link{lpp}}, \code{\link{as.lpp}}
+\code{\link{as.stlpp}}, \code{\link[spatstat.linnet]{lpp}}, \code{\link[spatstat.linnet]{as.lpp}}
 }
 \author{
 Mehdi Moradi <m2.moradi@yahoo.com>

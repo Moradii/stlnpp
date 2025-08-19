@@ -7,9 +7,9 @@
 stlpp(X, L, T, ...)
 }
 \arguments{
-\item{X}{Locations of the points. a matrix or data frame of coordinates, or a point pattern object (of class "ppp") or other data acceptable to \code{\link{as.ppp}} or \code{\link{lpp}}}
+\item{X}{Locations of the points. a matrix or data frame of coordinates, or a point pattern object (of class "ppp") or other data acceptable to \code{\link[spatstat.geom]{as.ppp}} or \code{\link[spatstat.linnet]{lpp}}}
 
-\item{L}{linear network (object of class \code{\link{linnet}}) on which the points lie}
+\item{L}{linear network (object of class \code{\link[spatstat.linnet]{linnet}}) on which the points lie}
 
 \item{T}{time occurrence of the points}
 
@@ -22,7 +22,7 @@ An object of class  \code{\link{stlpp}}.
 Create an object of class \code{\link{stlpp}} representing a spatio-temporal point pattern on a linear network.
 }
 \details{
-This function creates an object of class \code{\link{stlpp}}. For details about X see \code{\link{lpp}}. \code{T} represents the time occurrences of data points.
+This function creates an object of class \code{\link{stlpp}}. For details about X see \code{\link[spatstat.linnet]{lpp}}. \code{T} represents the time occurrences of data points.
 }
 \examples{
  
@@ -33,7 +33,7 @@ stlpp(X,T=t,L=easynet)
 
 }
 \seealso{
-\code{\link{as.stlpp}}, \code{\link{lpp}}
+\code{\link{as.stlpp}}, \code{\link[spatstat.linnet]{lpp}}
 }
 \author{
 Mehdi Moradi <m2.moradi@yahoo.com>

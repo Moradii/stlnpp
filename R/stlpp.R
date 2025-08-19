@@ -4,19 +4,19 @@
 #'
 #' @usage stlpp(X, L, T, ...)
 #'
-#' @param X Locations of the points. a matrix or data frame of coordinates, or a point pattern object (of class "ppp") or other data acceptable to \code{\link{as.ppp}} or \code{\link{lpp}}
-#' @param L linear network (object of class \code{\link{linnet}}) on which the points lie
+#' @param X Locations of the points. a matrix or data frame of coordinates, or a point pattern object (of class "ppp") or other data acceptable to \code{\link[spatstat.geom]{as.ppp}} or \code{\link[spatstat.linnet]{lpp}}
+#' @param L linear network (object of class \code{\link[spatstat.linnet]{linnet}}) on which the points lie
 #' @param T time occurrence of the points
 #' @param ... ignored
 #' 
 #' 
-#' @seealso \code{\link{as.stlpp}}, \code{\link{lpp}}
+#' @seealso \code{\link{as.stlpp}}, \code{\link[spatstat.linnet]{lpp}}
 #' 
 #' @author Mehdi Moradi <m2.moradi@yahoo.com>
 #' 
 #' @returns An object of class  \code{\link{stlpp}}.
 #' 
-#' @details This function creates an object of class \code{\link{stlpp}}. For details about X see \code{\link{lpp}}. \code{T} represents the time occurrences of data points.
+#' @details This function creates an object of class \code{\link{stlpp}}. For details about X see \code{\link[spatstat.linnet]{lpp}}. \code{T} represents the time occurrences of data points.
 #' 
 #' @examples  
 #' data(easynet)

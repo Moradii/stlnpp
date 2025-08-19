@@ -9,9 +9,9 @@
 #' @param nrep number of independent repetitions of the randomised procedure
 #' @param at string specifying whether to compute the intensity values at a grid of pixel locations and time (at="pixels") or only at the points of x (at="points"). default is to estimate the intensity at pixels
 #' @param dimt the number of equally spaced points at which the temporal density is to be estimated. see \link[stats]{density}
-#' @param ... arguments passed to \code{\link{densityVoronoi.lpp}}
+#' @param ... arguments passed to \code{\link[spatstat.linnet]{densityVoronoi.lpp}}
 #' 
-#' @seealso \code{\link{densityVoronoi.lpp}}, \code{\link{density.stlpp}}
+#' @seealso \code{\link[spatstat.linnet]{densityVoronoi.lpp}}, \code{\link{density.stlpp}}
 #' 
 #' @author Mehdi Moradi <m2.moradi@yahoo.com> and Ottmar Cronie
 #' 
@@ -31,14 +31,20 @@
 #' 
 #' @examples  
 #' X <- rpoistlpp(0.2,a=0,b=5,L=easynet)
-#' Y <- as.tpp.stlpp(X)
+#' Y <- as.tpp(X)
 #' densityVoronoi(Y)
 #' 
-#' 
+#' @import spatstat
+#' @import spatstat.geom
+#' @import spatstat.linnet
+#' @import spatstat.random 
+#' @import spatstat.explore 
+#' @import stats
 #' @export
 densityVoronoi.tpp <- function(X, f = 1, nrep = 1,
-                               at=c("points","pixels"),
-                               dimt=128,...){
+                               at = c("points","pixels"),
+                               dimt = 128,
+                               ...){
   
   if(!inherits(X, "tpp")) stop("X should an object of class tpp")
   
@@ -48,10 +54,10 @@ densityVoronoi.tpp <- function(X, f = 1, nrep = 1,
   
   if(f<0 | f>1) stop("f should be between 0 and 1")
   
-  Xt <- lpp(X=cbind(X$data$t,rep(0,n)), 
-            L=linnet_interval(startp=X$time[1], endp=X$time[2]))
+  Xt <- lpp(X = cbind(X$data$t,rep(0,n)), 
+            L = linnet_interval(startp=X$time[1], endp=X$time[2]))
   
-  out <- densityVoronoi.lpp(Xt,f=f,nrep=nrep,dimyx=dimt,...)
+  out <- densityVoronoi.lpp(Xt, f = f, nrep = nrep, dimyx = dimt, ...)
   
   if(at=="pixels"){
     out1 <- out$v[!is.na(out$v)]

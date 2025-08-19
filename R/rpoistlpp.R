@@ -8,7 +8,7 @@
 #' @param a lower bound of time period
 #' @param b upper bound of time period
 #' @param L a linear network
-#' @param check logical value indicating whether to check that all the (x,y) points lie inside the specified window. see \code{\link{ppp}}
+#' @param check logical value indicating whether to check that all the (x,y) points lie inside the specified window. see \code{\link[spatstat.geom]{ppp}}
 #' @param lmax upper bound for the values of \code{labmda}. this is optional
 #' @param nsim number of simulated patterns to generate
 #' 

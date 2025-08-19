@@ -10,7 +10,7 @@ print.tpp <- function(x,...)
 
 
 #' @export
-plot.tpp <- function(x,xlab="time",ylab="",main = "cumulative number",...){
+plot.tpp <- function(x, xlab="time", ylab="", main = "cumulative number",...){
   if(!any(class(x)=="tpp")) stop("class(x) must be tpp")
   xx <-  sort(x$data$t, index.return = TRUE)
   x1  <-  x$data$t[xx$ix]

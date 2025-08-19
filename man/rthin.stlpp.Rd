@@ -20,7 +20,7 @@ An object of the same kind as X if nsim=1, or a list of such objects if nsim > 1
 This function applies independent random thinning to a spatio-temporal point pattern on a linear network.
 }
 \details{
-See \code{\link{rthin}}.
+See \code{\link[spatstat.random]{rthin}}.
 }
 \examples{
  
@@ -32,7 +32,7 @@ rthin(Medellin,P=.5)
 Moradi, M., & Mateu, J. (2020). First-and second-order characteristics of spatio-temporal point processes on linear networks. Journal of Computational and Graphical Statistics, 29(3), 432-443.
 }
 \seealso{
-\code{\link{stlpp}}, \code{\link{rthin}}
+\code{\link{stlpp}}, \code{\link[spatstat.random]{rthin}}
 }
 \author{
 Mehdi Moradi <m2.moradi@yahoo.com>

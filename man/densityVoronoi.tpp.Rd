@@ -17,7 +17,7 @@
 
 \item{dimt}{the number of equally spaced points at which the temporal density is to be estimated. see \link[stats]{density}}
 
-\item{...}{arguments passed to \code{\link{densityVoronoi.lpp}}}
+\item{...}{arguments passed to \code{\link[spatstat.linnet]{densityVoronoi.lpp}}}
 }
 \value{
 If \code{at="points"}: a vector of intensity values at the data points of X.
@@ -35,16 +35,15 @@ IF f<1, then nrep independent sub-samples of X are obtained using the function \
 \examples{
  
 X <- rpoistlpp(0.2,a=0,b=5,L=easynet)
-Y <- as.tpp.stlpp(X)
+Y <- as.tpp(X)
 densityVoronoi(Y)
-
 
 }
 \references{
 Mateu, J., Moradi, M., & Cronie, O. (2019). Spatio-temporal point patterns on linear networks: Pseudo-separable intensity estimation. Spatial Statistics, 100400.
 }
 \seealso{
-\code{\link{densityVoronoi.lpp}}, \code{\link{density.stlpp}}
+\code{\link[spatstat.linnet]{densityVoronoi.lpp}}, \code{\link{density.stlpp}}
 }
 \author{
 Mehdi Moradi <m2.moradi@yahoo.com> and Ottmar Cronie

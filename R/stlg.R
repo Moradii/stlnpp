@@ -9,7 +9,7 @@
 #' @param t values of argument t where pair correlation function will be evaluated. optional
 #' @param nxy pixel array dimensions. optional
 #' 
-#' @seealso \code{\link{pcf}}, \code{\link{STLK}}
+#' @seealso \code{\link[spatstat.explore]{pcf}}, \code{\link{STLK}}
 #' 
 #' @author Mehdi Moradi <m2.moradi@yahoo.com> 
 #' 

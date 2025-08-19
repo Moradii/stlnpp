@@ -35,7 +35,7 @@ plot(k)
 Moradi, M., & Mateu, J. (2020). First-and second-order characteristics of spatio-temporal point processes on linear networks. Journal of Computational and Graphical Statistics, 29(3), 432-443.
 }
 \seealso{
-\code{\link{Kest}}, \code{\link{STLg}}
+\code{\link[spatstat.explore]{Kest}}, \code{\link{STLg}}
 }
 \author{
 Mehdi Moradi <m2.moradi@yahoo.com>

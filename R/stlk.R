@@ -9,7 +9,7 @@
 #' @param t values of argument t where pair correlation function will be evaluated. optional
 #' @param nxy pixel array dimensions. optional
 #' 
-#' @seealso \code{\link{Kest}}, \code{\link{STLg}}
+#' @seealso \code{\link[spatstat.explore]{Kest}}, \code{\link{STLg}}
 #' 
 #' @author Mehdi Moradi <m2.moradi@yahoo.com> 
 #' 

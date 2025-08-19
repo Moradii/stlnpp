@@ -21,10 +21,24 @@ Methods for space-time point patterns on a linear network
 Methods for space-time point patterns on a linear network.
 }
 \usage{
-\method{plot}{stlpp}(x,xlab = xlab,...)
-\method{plot}{stlppint}(x,style=style,xlab=xlab,xlim=xlim,ylim=ylim,bar=TRUE,...)
-\method{plot}{sumstlpp}(x,style=c("level","contour","perspective"), theta = 35, phi = 10,
-facets = FALSE, ticktype = "detailed", resfac = 5,xlab="r = distance",ylab="t = time",...)
+\method{plot}{stlpp}(x,
+  onlypoints=FALSE,
+  onlytime=FALSE,
+  args.xy = list(),
+  args.time = list(),
+  ...)
+\method{plot}{stlppint}(x, style = NULL, xlab = NULL, ylab = NULL, main =
+                   NULL, xlim = NULL, ylim = NULL, bar = TRUE,
+                   args.spatial = list(), args.temporal = list(),
+                   all.images = FALSE, per.page = 9, ...)
+\method{plot}{sumstlpp}(x,
+                          style = c( "perspective",  "contour","level"),
+                          theta = 35, phi = 10, facets = FALSE,
+                          ticktype = "detailed", resfac = 5,
+                          xlab = NULL, ylab = NULL, zlab = NULL, main = NULL,
+                          args.level = list(),
+                          args.contour = list(),
+                          args.perspective = list(),...)
 \method{print}{stlpp}(x,...)
 \method{print}{stlppint}(x,...)
 \method{print}{sumstlpp}(x,...)
@@ -49,8 +63,32 @@ see \link[plot3D]{persp3D}
 \item{resfac}{
 see \link[plot3D]{persp3D}
 }
-\item{xlab,ylab}{
-the x,y label of the plot
+\item{xlab,ylab,zlab}{
+the x,y,z label of the plot
+}
+\item{main}{
+an overall title for the plot
+}
+\item{args.spatial}{
+A list of additional arguments passed to spatial plots
+}
+\item{args.temporal}{
+A list of additional arguments passed to temporal plots
+}
+\item{all.images}{
+Logical, if \code{TRUE} plots all spatial images over time, where each image corresponds to the estimated spatio-temporal intensities
+}
+\item{per.page}{
+Number of spatial images to show per plotting page when \code{all.images = TRUE}
+}
+\item{args.level}{
+A named list of additional arguments to pass to \code{\link[lattice]{levelplot}}
+}
+\item{args.contour}{
+A named list of additional arguments to pass to \code{\link[graphics]{contour}}
+}
+\item{args.perspective}{
+A named list of additional arguments to pass to \code{\link[plot3D]{persp3D}}
 }
 \item{xlim}{
 giving the x limits for the plot
@@ -64,11 +102,20 @@ if TRUE, bar plot of rounded time occurances will be added to the density plot
 \item{i}{
 numeric, logical, or an object of class \code{\link{stlpp}}
 }
+\item{onlypoints, onlytime}{
+if only points or times are to be plotted
+}
+\item{
+args.xy, args.time
+}{
+arguments passed to \code{\link[spatstat.linnet]{plot.lpp}} and \code{\link[base]{plot}}
+}
 \item{...}{
-either ignore for \code{\link{as.linim}}, or
+either ignore for \code{\link[spatstat.linnet]{as.linim}}, or
 gracphical arguments passed to \code{\link{plot}}/\code{\link{print}}
 }
 }
+
 \author{
 Mehdi Moradi <m2.moradi@yahoo.com>
 }

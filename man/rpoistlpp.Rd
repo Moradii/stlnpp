@@ -15,7 +15,7 @@ rpoistlpp(lambda,a,b,L,check=FALSE,lmax=NULL,nsim=1)
 
 \item{L}{a linear network}
 
-\item{check}{logical value indicating whether to check that all the (x,y) points lie inside the specified window. see \code{\link{ppp}}}
+\item{check}{logical value indicating whether to check that all the (x,y) points lie inside the specified window. see \code{\link[spatstat.geom]{ppp}}}
 
 \item{lmax}{upper bound for the values of \code{labmda}. this is optional}
 

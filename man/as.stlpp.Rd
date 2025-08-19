@@ -4,15 +4,17 @@
 \alias{as.stlpp}
 \title{Convert data to a spatio-temporal point pattern on a linear network}
 \usage{
-as.stlpp(x,y,t,L)
+as.stlpp(x,y,t,L,T)
 }
 \arguments{
-\item{x, y, t}{vectors of Cartesian coordinates and time occurrence. Alternatively, x can be of classes \code{\link{data.frame}}, \code{\link{ppp}} and \code{\link{lpp}}}
+\item{x, y, t}{vectors of Cartesian coordinates and time occurrence. Alternatively, x can be of classes \code{\link{data.frame}}, \code{\link[spatstat.geom]{ppp}} and \code{\link[spatstat.linnet]{lpp}}}
 
-\item{L}{linear network (object of class \code{\link{linnet}})}
+\item{L}{linear network (object of class \code{\link[spatstat.linnet]{linnet}})}
+
+\item{T}{time domain, if not given, it will be the range of t}
 }
 \value{
-A spatio-temporal point pattern on a linear network. An object of class  \code{\link{stlpp}}.
+An object of class  \code{\link{stlpp}}.
 }
 \description{
 This function converts data to a spatio-temporal point pattern on a linear network.
@@ -23,9 +25,9 @@ This function converts data to an object of class stlpp.
  \itemize{
    \item x is of class class \code{\link{data.frame}} with three columns. Then columns are considered as Cartesian coordinates (i.e. x,y,t) and they will be converted to a spatio-temporal point pattern on the linear network L.
    
-   \item x is a planar point pattern (class \code{\link{ppp}}). Then x will be converted to a spatio-temporal point pattern on the linear network L and with coresponding time vector t.
+   \item x is a planar point pattern (class \code{\link[spatstat.geom]{ppp}}). Then x will be converted to a spatio-temporal point pattern on the linear network L and with coresponding time vector t.
    
-   \item x is a linear point pattern (class \code{\link{lpp}}). Then x will be converted to a spatio-temporal point pattern on the linear network L and with coresponding time vector t.
+   \item x is a linear point pattern (class \code{\link[spatstat.linnet]{lpp}}). Then x will be converted to a spatio-temporal point pattern on the linear network L and with coresponding time vector t.
    
    \item x,y,t are vectors of same length where x,y are living on the corresponding network L.
  }
@@ -33,7 +35,7 @@ This function converts data to an object of class stlpp.
 \examples{
  
 data(easynet)
-x <- runifpointOnLines(40, easynet)
+x <- spatstat.random::runifpointOnLines(40, easynet)
 t1 <- sample(1:10,40,replace=TRUE)
 Y <- as.stlpp(x,t=t1,L=easynet)
 
